@@ -1,0 +1,97 @@
+//HEADER
+.header.dark {
+  border-bottom: 2px solid $celeste-3;
+}
+
+//FOOTER
+footer.dark {
+  background-color: $celeste-3;
+  .section-icons {
+    .ficon {
+      fill: $violeta-4;
+      &:hover {
+        fill: $violeta;
+      }
+    }
+  }
+}
+
+//MAIN
+.main.dark {
+  background-image: url("/background-dark.png");
+
+  ::-webkit-scrollbar-thumb {
+    background: $celeste-3;
+    border-radius: 10px;
+  }
+
+  .titulo {
+    color: $celeste;
+  }
+  .progress-list {
+    .month-name {
+      color: $celeste;
+    }
+    .filter-options {
+      svg {
+        color: $celeste;
+      }
+    }
+  }
+  .prog-table-item {
+    .nombre-fila {
+      color: $celeste;
+    }
+    .plm:hover {
+      color: $blanco;
+    }
+  }
+  .project-title {
+    color: $celeste;
+  }
+  .seccion {
+    color: $celeste;
+  }
+
+  .form-nueva-subcat {
+    color: $celeste;
+  }
+
+  .celda {
+    border-color: $violeta-2;
+    &.celda-disabled-2 {
+      background-color: $violeta;
+      border-color: $violeta-2;
+    }
+  }
+
+  .day-setter {
+    .day-name {
+      color: $celeste !important;
+    }
+  }
+}
+
+.project {
+  .form-nueva-subcat {
+    .btn-violeta {
+      background-color: $celeste-2;
+      color: $violeta-4 !important;
+      border: 2px solid $celeste-2;
+      &:hover {
+        background-color: $azul-2;
+        color: $blanco !important;
+        border: 2px solid $blanco;
+      }
+    }
+  }
+  .subcat {
+    .btn-celeste {
+      color: $violeta-4;
+      border: 2px solid $celeste-2;
+      &:hover {
+        color: $blanco !important;
+      }
+    }
+  }
+}

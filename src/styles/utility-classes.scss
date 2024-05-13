@@ -1,3 +1,4 @@
+//ROW GAPS
 .rg-5 {
   row-gap: 5px;
 }
@@ -10,6 +11,7 @@
   row-gap: 15px;
 }
 
+//GAPS
 .g-5 {
   gap: 5px;
 }
@@ -22,10 +24,21 @@
   gap: 15px;
 }
 
+.g-30 {
+  gap: 30px;
+}
+
+//MARGINS
+.mr-15 {
+  margin-right: 15px;
+}
+
+//FONT WEIGHT
 .bold {
   font-weight: 600;
 }
 
+//FONT COLORS
 .texto-violeta {
   color: $violeta-3 !important;
 }
