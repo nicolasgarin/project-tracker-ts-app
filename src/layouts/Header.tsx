@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
