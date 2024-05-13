@@ -1,11 +1,21 @@
+import { Route, Routes } from 'react-router';
 import './main.scss';
+import Home from './pages/Home';
 
 function App() {
 
   return (
     <>
-      <p className='container d-flex g-15'><span>Project tracker</span><span>fdsadsf</span></p>
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+            />
+          }
+        />
+        <Route path="*" element={<>not foun page</>} />
+      </Routes>    </>
   )
 }
 
