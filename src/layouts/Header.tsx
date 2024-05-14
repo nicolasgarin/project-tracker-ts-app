@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { IoMoon, IoSunny } from "react-icons/io5";
+import logoCorto from "../assets/logo-celeste.svg";
 import logo from "../assets/logo-celeste-texto.svg";
 import esLogo from "../assets/es.svg";
 import enLogo from "../assets/en.svg";
@@ -17,7 +18,8 @@ export default function Header() {
             to={"/project-tracker-ts-app/"}
             aria-label={lang == "es" ? "Volver al inicio" : "Return to home"}
           >
-            <img src={logo} className="logo mr-15" alt="Project tracker logo" />
+            <img src={logoCorto} className="logo d-block d-sm-none mr-15" alt="Project tracker logo" />
+            <img src={logo} className="logo d-none d-sm-block mr-15" alt="Project tracker logo" />
           </Link>
         </div>
         <div className="options g-30 d-flex align-items-center justify-content-center justify-content-sm-end">

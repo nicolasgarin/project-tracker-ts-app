@@ -21,12 +21,6 @@ export interface IProject {
   }[];
 }
 
-export type DataContextType = {
-  data: IProject[];
-  newProject: (project: IProject) => void;
-  //dispatch: React.Dispatch<ProjectAction>;
-};
-
 export type DataAction =
 | { type: "INIT_DATA"; payload: {data: IProject[]}}
 | { type: "ACTUALIZAR_DATA"; }
