@@ -9,7 +9,14 @@ export default function Home() {
     <>
       <div className={`main ${theme}`}>Home {lang}</div>
       {data.map((project) => (
+        <>
         <div>{project.nombre} - {project.id}</div>
+        {project.logros.map((logro) => (
+          <div>
+            {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
+          </div>
+        ))}
+        </>
       ))}
       <button
         onClick={() =>
@@ -20,6 +27,16 @@ export default function Home() {
         }
       >
         Agregar proyecto
+      </button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "AGREGAR_LOGRO",
+            payload: {id: "ukjsdsdff21sdds", nombreLogro: "Correr", imgLogro: "ray.png"},
+          })
+        }
+      >
+        Agregar logro
       </button>
     </>
   );

@@ -31,5 +31,5 @@ export type DataAction =
 | { type: "ELIMINAR_SUBPROYECTO"; payload: {id: string, idSubp: string} }
 | { type: "FAV_PROYECTO"; payload: {id: string} }
 | { type: "ARCHIVAR_PROYECTO"; payload: {id: string} }
-| { type: "ACTUALIZAR_SUBPROYECTO"; payload: {id: string, idSubp: string, nombreSubp: string} }
+| { type: "ACTUALIZAR_SUBPROYECTO"; payload: {id: string, idSubp: string, diaActual: string} }
 | { type: "FINALIZAR_SUBPROYECTO"; payload: {id: string, idSubp: string} };
