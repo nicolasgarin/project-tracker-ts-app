@@ -1,6 +1,5 @@
-import React from "react";
 
-export const CardList = (props) => {
+export const CardList = (props: any) => {
   const { children } = props;
 
   return (

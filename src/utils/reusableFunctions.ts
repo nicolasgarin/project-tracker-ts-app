@@ -1,5 +1,5 @@
-function normalizeString(str: string) {
-  const conversionTable = {
+export function normalizeString(str: string) {
+  const conversionTable: any = {
     " ": "-",
     á: "a",
     é: "e",
@@ -7,12 +7,12 @@ function normalizeString(str: string) {
     ó: "o",
     ú: "u",
   };
-  const normStr = Object.keys(conversionTable).forEach((key) => {
+  Object.keys(conversionTable).forEach((key) => {
     str = str.toLowerCase().replaceAll(key, conversionTable[key]);
   });
-  return normStr;
+  return str;
 }
 
-function capFirstLetter(str: string) {
+export function capFirstLetter(str: string) {
   return str[0].toUpperCase() + str.slice(1);
 }

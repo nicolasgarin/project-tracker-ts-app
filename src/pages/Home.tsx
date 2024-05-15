@@ -1,5 +1,6 @@
 import useData from "../context/DataContext";
 import useUserOptions from "../context/UserOptionsContext";
+import { CardList } from "../layouts/CardList";
 
 export default function Home() {
   const { data, dispatch } = useData();
@@ -8,16 +9,7 @@ export default function Home() {
   return (
     <>
       <div className={`main ${theme}`}>Home {lang}</div>
-      {data.map((project) => (
-        <>
-        <div>{project.nombre} - {project.id}</div>
-        {project.logros.map((logro) => (
-          <div>
-            {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
-          </div>
-        ))}
-        </>
-      ))}
+
       <button
         onClick={() =>
           dispatch({
@@ -38,6 +30,18 @@ export default function Home() {
       >
         Agregar logro
       </button>
+      <CardList>
+      {data.map((project) => (
+        <>
+        <div>{project.nombre} - {project.id}</div>
+        {project.logros.map((logro) => (
+          <div>
+            {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
+          </div>
+        ))}
+        </>
+      ))}
+      </CardList>
     </>
   );
 }
