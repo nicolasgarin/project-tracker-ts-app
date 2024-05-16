@@ -14,7 +14,7 @@ export default function NewProjectForm(){
         e.preventDefault();
         dispatch({
             type: "CREAR_PROYECTO",
-          payload: { nombre: nombreP, tipo: tipoP, diaActual: actualDate },
+          payload: { nombre: nombreP, tipo: tipoP, diaActual: stringDateFormat(actualDate) },
         });
         setNombreP("");
         setTipoP("");
