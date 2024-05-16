@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Instructions from "./pages/Instructions.tsx";
 import { UserOptionsProvider } from "./context/UserOptionsContext.tsx";
 import { DataProvider } from "./context/DataContext.tsx";
+import Project from "./pages/Project.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/project-tracker-ts-app/",
         element: <Home />,
+      },
+      {
+        path: "/project-tracker-ts-app/projects/:projectId",
+        element: <Project />,
       },
       {
         path: "/project-tracker-ts-app/instructions",

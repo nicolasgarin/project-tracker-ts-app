@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useData from "../context/DataContext";
 import useUserOptions from "../context/UserOptionsContext";
 import { CardList } from "../layouts/CardList";
@@ -33,7 +34,10 @@ export default function Home() {
       <CardList>
       {data.map((project) => (
         <>
-        <div>{project.nombre} - {project.id}</div>
+        <div><Link
+                className="link-titulo"
+                to={`/project-tracker-app/projects/${project.id}`}
+              >{project.nombre}</Link> - {project.id}</div>
         {project.logros.map((logro) => (
           <div>
             {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
