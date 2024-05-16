@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Instructions from "./pages/Instructions.tsx";
 import { UserOptionsProvider } from "./context/UserOptionsContext.tsx";
 import { DataProvider } from "./context/DataContext.tsx";
+import { DatesProvider } from "./context/DatesContext.tsx";
 import Project from "./pages/Project.tsx";
 
 const router = createBrowserRouter([
@@ -38,9 +39,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <UserOptionsProvider>
-      <DataProvider>
-        <RouterProvider router={router} />
-      </DataProvider>
+      <DatesProvider>
+        <DataProvider>
+          <RouterProvider router={router} />
+        </DataProvider>
+      </DatesProvider>
     </UserOptionsProvider>
   </React.StrictMode>
 );
