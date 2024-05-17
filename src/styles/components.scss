@@ -27,3 +27,140 @@
     }
   }
 }
+
+// PROJECT CARD
+.card {
+  width: 300px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border: none !important;
+  margin-bottom: 45px;
+  &.disabled {
+    filter: grayscale(80%);
+  }
+
+  .card-header {
+    background-color: $violeta-3 !important;
+    padding: 10px 15px;
+    .link-titulo {
+      color: unset;
+      text-decoration: none;
+      &:hover {
+        color: $blanco !important;
+      }
+    }
+    .title {
+      color: $gris-claro;
+      margin-bottom: 0;
+    }
+  }
+
+  .card-body {
+    background-color: $celeste-3 !important;
+    padding: 15px;
+    border-radius: 0px 0px 8px 8px;
+    color: $gris-claro;
+    font-weight: 500;
+    .subcat {
+      gap: 10px;
+      max-height: 100px;
+      overflow-y: scroll;
+      margin-right: 30px;
+      padding-right: 30px;
+      .fila-card {
+        .subcat-name {
+          width: 100%;
+        }
+        &:hover {
+          cursor: pointer;
+          .subcat-name {
+            font-weight: 600;
+          }
+          .celda-sm {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+    .vertical-btn {
+      gap: 10px;
+      svg {
+        height: 20px;
+        width: 20px;
+      }
+      .star {
+        svg {
+          &:hover {
+            fill: $blanco !important;
+            cursor: pointer;
+          }
+        }
+        &.filled {
+          .star-fill {
+            display: block;
+            animation: popUp 0.3s ease-in-out 0s 1 normal forwards;
+          }
+          .star-outline {
+            display: none;
+          }
+        }
+        &.outline {
+          .star-fill {
+            display: none;
+          }
+          .star-outline {
+            display: block;
+            fill: $celeste-4;
+          }
+        }
+        &.disabled {
+          svg {
+            &:hover {
+              fill: $celeste-4 !important;
+              cursor: auto;
+            }
+          }
+        }
+      }
+      .moon {
+        svg {
+          fill: $blanco;
+          &:hover {
+            fill: $blanco !important;
+            cursor: pointer;
+          }
+        }
+        &.deactive {
+          svg {
+            animation: popUp 0.3s ease-in-out 0s 1 normal forwards;
+          }
+        }
+        &.active {
+          svg {
+            fill: $celeste-4;
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+      .btn {
+        height: fit-content;
+      }
+    }
+  }
+  @media (max-width: $lg) {
+    width: 200px !important;
+    .card-body {
+      .subcat {
+        margin-right: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+}

@@ -3,17 +3,18 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./main.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { UserOptionsProvider } from "./context/UserOptionsContext.tsx";
+import { DataProvider } from "./context/DataContext.tsx";
+import { DatesProvider } from "./context/DatesContext.tsx";
+import { UtilsProvider } from "./context/UtilsContext.tsx";
 import Home from "./pages/Home.tsx";
+import Instructions from "./pages/Instructions.tsx";
+import Project from "./pages/Project.tsx";
 
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 //import "bootstrap/dist/js/bootstrap.bundle.min";
-import Instructions from "./pages/Instructions.tsx";
-import { UserOptionsProvider } from "./context/UserOptionsContext.tsx";
-import { DataProvider } from "./context/DataContext.tsx";
-import { DatesProvider } from "./context/DatesContext.tsx";
-import Project from "./pages/Project.tsx";
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <UserOptionsProvider>
       <DatesProvider>
-        <DataProvider>
-          <RouterProvider router={router} />
-        </DataProvider>
+        <UtilsProvider>
+          <DataProvider>
+            <RouterProvider router={router} />
+          </DataProvider>
+        </UtilsProvider>
       </DatesProvider>
     </UserOptionsProvider>
   </React.StrictMode>

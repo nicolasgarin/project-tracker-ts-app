@@ -1,63 +1,47 @@
-import { Link } from "react-router-dom";
 import useData from "../context/DataContext";
 import useUserOptions from "../context/UserOptionsContext";
 import { CardList } from "../layouts/CardList";
 import NewProjectForm from "../components/NewProjectForm";
 import SelectedDaySetter from "../components/SelectedDaySetter";
+import ProjectCard from "../components/ProjectCard";
+import EmptyInfo from "../components/EmptyInfo";
 
 export default function Home() {
-  const { data, dispatch } = useData();
+  const { data } = useData();
   const { theme, lang } = useUserOptions();
 
   return (
     <>
       <div className={`main ${theme}`}>
-      <NewProjectForm />
-      <SelectedDaySetter />
-      <button
-        onClick={() =>
-          dispatch({
-            type: "CREAR_PROYECTO",
-            payload: { nombre: "EF", tipo: "Salud", diaActual: "2022-5-13" },
-          })
-        }
-      >
-        Agregar proyecto
-      </button>
-      <button
-        onClick={() =>
-          dispatch({
-            type: "AGREGAR_LOGRO",
-            payload: {
-              id: "ukjsdsdff21sdds",
-              nombreLogro: "Correr",
-              imgLogro: "ray.png",
-            },
-          })
-        }
-      >
-        Agregar logro
-      </button>
-      <CardList>
-        {data.map((project) => (
-          <>
-            <div>
-              <Link
-                className="link-titulo"
-                to={`/project-tracker-ts-app/projects/${project.id}`}
-              >
-                {project.nombre}
-              </Link>{" "}
-              - {project.id} - fecha {project.fechaCreacion}
-            </div>
-            {project.logros.map((logro) => (
-              <div>
-                {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
+        <NewProjectForm />
+        <div className="main">
+          <div className="main-container">
+            <section className="container-lg">
+              <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start mb-3">
+                <h2 className="titulo">
+                  {lang == "es" ? "Proyectos" : "Projects"}
+                </h2>
+                <SelectedDaySetter />
               </div>
-            ))}
-          </>
-        ))}
-      </CardList>
+              {data.length > 0 ? (
+                <CardList>
+                  {data.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </CardList>
+              ) : (
+                <EmptyInfo
+                  mssg={
+                    lang == "es"
+                      ? "Ingrese nuevos proyectos"
+                      : "Enter new projects"
+                  }
+                  img="telescopio"
+                />
+              )}
+            </section>
+          </div>
+        </div>
       </div>
     </>
   );
