@@ -1,10 +1,13 @@
-export interface Date {
-  dateObj: Date;
+export interface IDate {
+  dateObj: string;
 }
 
 export type DateContextType = {
-  actualDate: Date["dateObj"];
-  selectedDate: Date["dateObj"];
-  setActualDate: () => void;
-  setSelectedDate: () => void;
+  actualDate: IDate["dateObj"];
+  selectedDate: IDate["dateObj"];
+  updateActualDate: (date: string) => void;
+  updateSelectedDate: (date: string) => void;
+  prevSelectedDate: () => void;
+  nextSelectedDate: () => void;
+  selectedDateIsToday: () => boolean;
 };

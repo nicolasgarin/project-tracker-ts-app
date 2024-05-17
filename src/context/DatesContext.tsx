@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { Date, DateContextType } from "../@types/date";
+import React, { createContext, useContext, useState } from "react";
+import { IDate, DateContextType } from "../@types/date";
+import { dateToStringFormat } from "../utils/dateFunctions";
 
 const DatesContext = createContext<DateContextType | undefined>(
   undefined
@@ -8,16 +9,27 @@ const DatesContext = createContext<DateContextType | undefined>(
 export const DatesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [actualDate, setActualDate] = useState<Date["dateObj"]>(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date["dateObj"]>(new Date());
+  const [actualDate, setActualDate] = useState<IDate["dateObj"]>(dateToStringFormat(new Date()));
+  const [selectedDate, setSelectedDate] = useState<IDate["dateObj"]>(dateToStringFormat(new Date()));
 
   return (
     <DatesContext.Provider
       value={{
         actualDate,
-        setActualDate,
+        updateActualDate: (date: string) => setActualDate(date),
         selectedDate,
-        setSelectedDate
+        updateSelectedDate: (date: string) => setSelectedDate(date),
+        prevSelectedDate: () =>  {
+          let dateObj = new Date(selectedDate);
+          dateObj.setDate(dateObj.getDate() - 1);
+          setSelectedDate(dateToStringFormat(dateObj));
+        },
+        nextSelectedDate: () => {
+          let dateObj = new Date(selectedDate);
+          dateObj.setDate(dateObj.getDate() + 1);
+          setSelectedDate(dateToStringFormat(dateObj));
+        },
+        selectedDateIsToday: () => selectedDate == actualDate,
       }}
     >
       {children}

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import useData from "../context/DataContext";
 import useUserOptions from "../context/UserOptionsContext";
 import { CardList } from "../layouts/CardList";
+import NewProjectForm from "../components/NewProjectForm";
+import SelectedDaySetter from "../components/SelectedDaySetter";
 
 export default function Home() {
   const { data, dispatch } = useData();
@@ -9,8 +11,9 @@ export default function Home() {
 
   return (
     <>
-      <div className={`main ${theme}`}>Home {lang}</div>
-
+      <div className={`main ${theme}`}>
+      <NewProjectForm />
+      <SelectedDaySetter />
       <button
         onClick={() =>
           dispatch({
@@ -25,27 +28,37 @@ export default function Home() {
         onClick={() =>
           dispatch({
             type: "AGREGAR_LOGRO",
-            payload: {id: "ukjsdsdff21sdds", nombreLogro: "Correr", imgLogro: "ray.png"},
+            payload: {
+              id: "ukjsdsdff21sdds",
+              nombreLogro: "Correr",
+              imgLogro: "ray.png",
+            },
           })
         }
       >
         Agregar logro
       </button>
       <CardList>
-      {data.map((project) => (
-        <>
-        <div><Link
+        {data.map((project) => (
+          <>
+            <div>
+              <Link
                 className="link-titulo"
-                to={`/project-tracker-app/projects/${project.id}`}
-              >{project.nombre}</Link> - {project.id}</div>
-        {project.logros.map((logro) => (
-          <div>
-            {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
-          </div>
+                to={`/project-tracker-ts-app/projects/${project.id}`}
+              >
+                {project.nombre}
+              </Link>{" "}
+              - {project.id} - fecha {project.fechaCreacion}
+            </div>
+            {project.logros.map((logro) => (
+              <div>
+                {logro.idLogro} - {logro.nombreLogro} - {logro.imgLogro}
+              </div>
+            ))}
+          </>
         ))}
-        </>
-      ))}
       </CardList>
+      </div>
     </>
   );
 }

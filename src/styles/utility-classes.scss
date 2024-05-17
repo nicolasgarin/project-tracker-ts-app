@@ -46,3 +46,95 @@
 .texto-celeste {
   color: $celeste-2;
 }
+
+//TITULOS
+.titulo {
+  color: $violeta-3;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.titulo-header {
+  color: $gris-claro;
+}
+
+//SOMBRA
+.shadow {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+//BOTONES
+.btn {
+  border-radius: 8px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  &.btn-violeta {
+    background-color: $violeta-3;
+    color: $gris-claro !important;
+    &:hover {
+      background-color: $violeta-4;
+    }
+  }
+
+  &.btn-celeste {
+    background-color: $celeste;
+    color: $gris-claro;
+    border: 2px solid $celeste !important;
+    svg {
+      fill: $blanco;
+    }
+    &:hover {
+      border: 2px solid $blanco !important;
+      background-color: $azul-2;
+    }
+  }
+
+  &.btn-celeste-4 {
+    background-color: $azul !important;
+    border: 1px solid $azul !important;
+    &:hover {
+      background-color: $azul-2;
+    }
+  }
+
+  &.btn-verde {
+    background-color: $verde-2;
+    color: $verde-4;
+    &:hover {
+      background-color: $verde-4;
+      color: $verde-2;
+    }
+  }
+
+  &.btn-rojo {
+    background-color: $rojo !important;
+    color: $rojo-2 !important;
+    &:hover {
+      background-color: $rojo-3;
+    }
+    .x {
+      height: 12px;
+      transition: 0.3s;
+    }
+    &:hover {
+      border: 2px solid $blanco !important;
+      .x {
+        fill: $blanco;
+        transition: 0.3s;
+      }
+    }
+  }
+  &.flecha {
+    height: 37.32px;
+    width: 40px;
+    svg {
+      fill: $celeste-4;
+    }
+    &:hover {
+      svg {
+        fill: $blanco;
+      }
+    }
+  }
+}
