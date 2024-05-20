@@ -108,7 +108,7 @@ export const dataReducer = (
         if (proyecto.id === action.payload.id) {
           return {
             ...proyecto,
-            subcategorias: proyecto.subproyectos.map((subP) => {
+            subproyectos: proyecto.subproyectos.map((subP) => {
               if (subP.idSubp === action.payload.idSubp) {
                 return {
                   ...subP,

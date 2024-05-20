@@ -25,7 +25,7 @@ export default function EmptyInfo({
   return (
     <div className="emptyinfo d-flex flex-column justify-content-between align-items-center">
       <img className="emptyinfo-img mb-3 animation" src={imgAssign(img)} />
-      <div className="message texto-imp">{mssg}</div>
+      <div className="message bold">{mssg}</div>
     </div>
   );
 }

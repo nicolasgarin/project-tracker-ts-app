@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={`main ${theme}`}>
+      <div className={`home ${theme}`}>
         <NewProjectForm />
         <div className="main">
           <div className="main-container">

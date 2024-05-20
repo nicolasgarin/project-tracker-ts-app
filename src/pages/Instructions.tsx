@@ -12,8 +12,8 @@ export default function Instructions() {
   const { theme, lang } = useUserOptions();
   return (
     <>
-      <div className={`instructions main ${theme}`}>
-        <div className="container-lg texto-imp">
+      <div className={`instructions ${theme}`}>
+        <div className="container-lg bold">
           <div className="seccion seccion-1">
             <div className="cont d-flex">
               <Link to={"/project-tracker-ts-app/"}>

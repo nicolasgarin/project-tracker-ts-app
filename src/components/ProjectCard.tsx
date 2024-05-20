@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: { project: IProject }) {
             {!project.archivado ? (
               <Link
                 className="link-titulo"
-                to={`/project-tracker-app/projects/${project.id}`}
+                to={`/project-tracker-ts-app/projects/${project.id}`}
               >
                 {capFirstLetter(project.nombre)}
               </Link>

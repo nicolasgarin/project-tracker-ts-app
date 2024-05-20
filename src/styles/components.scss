@@ -28,6 +28,16 @@
   }
 }
 
+//CARDLIST
+.cardlist {
+  overflow-x: scroll !important;
+  .row {
+    flex-wrap: nowrap !important;
+    gap: 15px;
+    padding-left: 12px;
+  }
+}
+
 // PROJECT CARD
 .card {
   width: 300px !important;
@@ -161,6 +171,44 @@
         margin-right: 15px;
         padding-right: 15px;
       }
+    }
+  }
+}
+
+//SELECTED DAY SETTER
+.day-setter {
+  gap: 15px;
+  color: $violeta-3;
+}
+
+//SELECT
+select {
+  padding: 8px 15px;
+  background-image: url("/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 20px;
+  background-origin: content-box;
+  border-radius: 8px;
+  appearance: none;
+  &.input-form {
+    width: 220px;
+  }
+  &.select-year {
+    width: 100px;
+  }
+}
+
+//EMPTY INFO
+.emptyinfo {
+  .emptyinfo-img {
+    width: 250px;
+    max-width: 100%;
+  }
+  @media (max-width: $lg) {
+    .emptyinfo-img {
+      width: 50%;
+      max-width: 200px;
     }
   }
 }

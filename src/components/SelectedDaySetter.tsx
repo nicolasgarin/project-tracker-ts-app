@@ -23,7 +23,7 @@ export default function SelectedDaySetter() {
         >
           <FaAngleLeft />
         </button>
-        <div className="texto-imp day-name">
+        <div className="bold day-name">
           {selectedDateIsToday()
             ? lang == "es"
               ? "Hoy"
