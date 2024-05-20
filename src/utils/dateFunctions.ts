@@ -18,3 +18,9 @@ export function dayStringFormat(date: string, lang: string) {
     dia.getFullYear()
   );
 }
+
+export function getMonthName(monthNumber: number, lang: string) {
+  let varDate = new Date();
+  varDate.setMonth(monthNumber - 1);
+  return varDate.toLocaleString(`${lang}-US`, { month: "long" });
+}
