@@ -1,21 +1,23 @@
-import React, { useState } from "react";
-import { ACCIONES } from "../App";
+import { useState } from "react";
+import useUserOptions from "../context/UserOptionsContext";
 import rocket from "../assets/medals/rocket-medal.svg";
 import star from "../assets/medals/star-medal.svg";
 import cup from "../assets/medals/cup-medal.svg";
 import ray from "../assets/medals/ray-medal.svg";
 import crown from "../assets/medals/crown-medal.svg";
-import { useUserOptions } from "../context/UserOptionsContext";
+import { IProject } from "../@types/data";
+import useData from "../context/DataContext";
 
-export default function Logros({ project, dispatch }) {
+export default function ProjectLogros({ project }: { project: IProject }) {
+  const { dispatch } = useData();
   const { lang } = useUserOptions();
-  const [nombreLogro, setNombreLogro] = useState("");
-  const availableImgs = ["rocket", "star", "cup", "ray", "crown"];
+  const [nombreLogro, setNombreLogro] = useState<string>("");
+  const availableImgs: string[] = ["rocket", "star", "cup", "ray", "crown"];
 
-  function handleLogro(e) {
+  function handleLogro(e: any) {
     e.preventDefault();
     dispatch({
-      tipo: ACCIONES.AGREGAR_LOGRO,
+      type: "AGREGAR_LOGRO",
       payload: {
         id: project.id,
         nombreLogro: nombreLogro,
@@ -26,7 +28,7 @@ export default function Logros({ project, dispatch }) {
     setNombreLogro("");
   }
 
-  function logoAssign(string) {
+  function logoAssign(string: string) {
     switch (string) {
       case "rocket":
         return rocket;
@@ -39,7 +41,7 @@ export default function Logros({ project, dispatch }) {
       case "crown":
         return crown;
       default:
-        return null;
+        return "";
     }
   }
 
@@ -51,10 +53,10 @@ export default function Logros({ project, dispatch }) {
             <div key={project.id} className="logros d-flex row">
               {project.logros.map((logro) => {
                 return (
-                  <div key={logro.id} className="medal-box d-flex flex-column align-items-center col-4">
+                  <div key={logro.idLogro} className="medal-box d-flex flex-column align-items-center col-4">
                     <img
                       alt={`${lang == "es" ? "Medalla " : ''}${logro.nombreLogro}${lang == "en" ? " medal " : ''}`}
-                      src={logoAssign(logro.imgLogo)}
+                      src={logoAssign(logro.imgLogro)}
                       className="medal"
                     />
                     <div className="medal-name texto-imp text-center">

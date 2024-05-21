@@ -6,7 +6,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { UserOptionsProvider } from "./context/UserOptionsContext.tsx";
 import { DataProvider } from "./context/DataContext.tsx";
 import { DatesProvider } from "./context/DatesContext.tsx";
-import { UtilsProvider } from "./context/UtilsContext.tsx";
 import Home from "./pages/Home.tsx";
 import Instructions from "./pages/Instructions.tsx";
 import Project from "./pages/Project.tsx";
@@ -41,11 +40,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <UserOptionsProvider>
       <DatesProvider>
-        <UtilsProvider>
-          <DataProvider>
-            <RouterProvider router={router} />
-          </DataProvider>
-        </UtilsProvider>
+        <DataProvider>
+          <RouterProvider router={router} />
+        </DataProvider>
       </DatesProvider>
     </UserOptionsProvider>
   </React.StrictMode>

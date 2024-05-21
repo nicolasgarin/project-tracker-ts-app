@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useUserOptions } from "../context/UserOptionsContext";
+import { useEffect, useState } from "react";
+import useUserOptions from "../context/UserOptionsContext";
 import { BsHeartPulseFill } from "react-icons/bs";
-import { FaBrain, FaPaintBrush, FaEye, FaStar } from "react-icons/fa";
+import { FaBrain, FaPaintBrush } from "react-icons/fa";
+import { IProject } from "../@types/data";
+import { Stats } from "../@types/utils";
 
-
-export default function ProjectStats({ project }) {
-  const [stats, setStats] = useState();
+export default function ProjectInfo({ project }: { project: IProject }) {
+  const [stats, setStats] = useState<Stats>();
   const { lang } = useUserOptions();
 
   useEffect(() => {
@@ -22,26 +23,26 @@ export default function ProjectStats({ project }) {
     let mes = project.fechaCreacion.split("-")[1];
     let ano = project.fechaCreacion.split("-")[0];
     let creacion = dia + "/" + mes + "/" + ano;
-    project.subcategorias.forEach((sub) => {
-      cantDias += sub.diasCheckeados.length;
-      cantDiasStatus0 += sub.diasCheckeados.filter(
+    project.subproyectos.forEach((subp) => {
+      cantDias += subp.diasChecklist.length;
+      cantDiasStatus0 += subp.diasChecklist.filter(
         (dia) => dia.status == 0
       ).length;
-      cantDiasStatus1 += sub.diasCheckeados.filter(
+      cantDiasStatus1 += subp.diasChecklist.filter(
         (dia) => dia.status == 1
       ).length;
-      cantDiasStatus2 += sub.diasCheckeados.filter(
+      cantDiasStatus2 += subp.diasChecklist.filter(
         (dia) => dia.status == 2
       ).length;
-      cantDiasStatus3 += sub.diasCheckeados.filter(
+      cantDiasStatus3 += subp.diasChecklist.filter(
         (dia) => dia.status == 3
       ).length;
     });
     setStats({
       creacion: creacion,
-      cantSubproyectos: project.subcategorias.length,
-      cantActivos: project.subcategorias.filter((sub) => !sub.cerrada).length,
-      cantCerradas: project.subcategorias.filter((sub) => sub.cerrada).length,
+      cantSubproyectos: project.subproyectos.length,
+      cantActivos: project.subproyectos.filter((sub) => !sub.cerrada).length,
+      cantCerradas: project.subproyectos.filter((sub) => sub.cerrada).length,
       logros: project.logros.length,
       cantDiasCheckeados: cantDias,
       cantDiasStatus0: cantDiasStatus0,

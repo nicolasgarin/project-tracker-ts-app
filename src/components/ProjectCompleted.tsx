@@ -1,55 +1,55 @@
-import React from "react";
-import { ACCIONES } from "../App";
 import { FaCheck, FaUndo } from "react-icons/fa";
-import { useUserOptions } from "../context/UserOptionsContext";
-import { useReusableFunctions } from "../context/ReusableFunctionsContext";
+import { IProject } from "../@types/data";
+import useUserOptions from "../context/UserOptionsContext";
+import useData from "../context/DataContext";
+import { capFirstLetter } from "../utils/reusableFunctions";
 
-export default function CompletedSubP({ project, dispatch }) {
+export default function ProjectCompleted({ project }: { project: IProject }) {
+  const { dispatch } = useData();
   const { lang } = useUserOptions();
-  const { capitalizeFirstLetter } = useReusableFunctions();
 
   return (
     <div className="completed-subp">
-      {project.subcategorias.filter((subcat) => subcat.cerrada).length > 0 ? (
+      {project.subproyectos.filter((subP) => subP.cerrada).length > 0 ? (
         <div className="filas d-flex flex-column">
-          {project.subcategorias.map((subcat) => {
-            if (subcat.cerrada) {
+          {project.subproyectos.map((subP) => {
+            if (subP.cerrada) {
               return (
                 <div
-                  key={subcat.idSubcat}
+                  key={subP.idSubp}
                   className="fila d-flex align-items-center justify-content-between"
                 >
-                  <div className="nombre texto-imp">{capitalizeFirstLetter(subcat.nombreSubcat)}</div>
+                  <div className="nombre texto-imp">{capFirstLetter(subP.nombreSubp)}</div>
                   <div className="info d-flex">
                     <div className="d-flex align-items-center">
                       <FaCheck className="check" />{" "}
-                      {subcat.diasCheckeados.length}
+                      {subP.diasChecklist.length}
                     </div>
                     <div className="d-flex align-items-center">
                       <div className="celda celda-md check-1"></div>
                       {
-                        subcat.diasCheckeados.filter((dia) => dia.status == 0)
+                        subP.diasChecklist.filter((dia) => dia.status == 0)
                           .length
                       }
                     </div>
                     <div className="d-flex align-items-center">
                       <div className="celda celda-md check-2"></div>
                       {
-                        subcat.diasCheckeados.filter((dia) => dia.status == 1)
+                        subP.diasChecklist.filter((dia) => dia.status == 1)
                           .length
                       }
                     </div>
                     <div className="d-flex align-items-center">
                       <div className="celda celda-md check-3"></div>
                       {
-                        subcat.diasCheckeados.filter((dia) => dia.status == 2)
+                        subP.diasChecklist.filter((dia) => dia.status == 2)
                           .length
                       }
                     </div>
                     <div className="d-flex align-items-center">
                       <div className="celda celda-md check-4"></div>
                       {
-                        subcat.diasCheckeados.filter((dia) => dia.status == 3)
+                        subP.diasChecklist.filter((dia) => dia.status == 3)
                           .length
                       }
                     </div>
@@ -59,10 +59,10 @@ export default function CompletedSubP({ project, dispatch }) {
                     className="btn btn-celeste"
                     onClick={() => {
                       dispatch({
-                        tipo: ACCIONES.FINALIZAR_SUBPROYECTO,
+                        type: "FINALIZAR_SUBPROYECTO",
                         payload: {
                           id: project.id,
-                          idSubP: subcat.idSubcat,
+                          idSubp: subP.idSubp,
                         },
                       });
                     }}
