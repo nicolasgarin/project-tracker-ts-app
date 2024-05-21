@@ -1,4 +1,3 @@
-import React from "react";
 import { IProject } from "../@types/data";
 import { Link } from "react-router-dom";
 import { BsHeartPulseFill } from "react-icons/bs";
