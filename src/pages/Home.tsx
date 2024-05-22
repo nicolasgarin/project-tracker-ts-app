@@ -1,10 +1,10 @@
 import useData from "../context/DataContext";
 import useUserOptions from "../context/UserOptionsContext";
-import { CardList } from "../layouts/CardList";
-import NewProjectForm from "../components/NewProjectForm";
-import SelectedDaySetter from "../components/SelectedDaySetter";
+import NewProjectForm from "../components/NewProjectForm/NewProjectForm";
+import SelectedDaySetter from "../components/SelectedDaySetter/SelectedDaySetter";
 import ProjectCard from "../components/ProjectCard";
-import EmptyInfo from "../components/EmptyInfo";
+import EmptyInfo from "../components/EmptyInfo/EmptyInfo";
+import { CardList } from "../layouts/CardList/CardList";
 
 export default function Home() {
   const { data } = useData();

@@ -1,6 +1,7 @@
-import useDates from "../context/DatesContext";
-import useUserOptions from "../context/UserOptionsContext";
-import { dayStringFormat } from "../utils/dateFunctions";
+import "./SelectedDaySetter.scss";
+import useDates from "../../context/DatesContext";
+import useUserOptions from "../../context/UserOptionsContext";
+import { dayStringFormat } from "../../utils/dateFunctions";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 

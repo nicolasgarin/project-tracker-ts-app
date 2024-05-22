@@ -1,3 +1,4 @@
+import "./CardList.scss";
 
 export const CardList = (props: any) => {
   const { children } = props;

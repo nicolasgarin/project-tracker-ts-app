@@ -1,7 +1,8 @@
+import "./NewProjectForm.scss";
 import { useState } from "react";
-import useData from "../context/DataContext";
-import useDates from "../context/DatesContext";
-import useUserOptions from "../context/UserOptionsContext";
+import useData from "../../context/DataContext";
+import useDates from "../../context/DatesContext";
+import useUserOptions from "../../context/UserOptionsContext";
 
 export default function NewProjectForm() {
   const { dispatch } = useData();
