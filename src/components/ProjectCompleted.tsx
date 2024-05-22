@@ -19,7 +19,7 @@ export default function ProjectCompleted({ project }: { project: IProject }) {
                   key={subP.idSubp}
                   className="fila d-flex align-items-center justify-content-between"
                 >
-                  <div className="nombre texto-imp">{capFirstLetter(subP.nombreSubp)}</div>
+                  <div className="nombre bold">{capFirstLetter(subP.nombreSubp)}</div>
                   <div className="info d-flex">
                     <div className="d-flex align-items-center">
                       <FaCheck className="check" />{" "}
@@ -75,7 +75,7 @@ export default function ProjectCompleted({ project }: { project: IProject }) {
           })}
         </div>
       ) : (
-        <div className="msj d-flex align-items-center justify-content-center texto-imp">
+        <div className="msj d-flex align-items-center justify-content-center bold">
           {lang == "es" ? "Todavía no hay subproyectos terminados" : "There are no completed subprojects yet"}
         </div>
       )}

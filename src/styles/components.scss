@@ -212,3 +212,18 @@ select {
     }
   }
 }
+
+//MEDAL BOX
+.medal-box {
+  .medal {
+    width: 90px;
+    height: 90px;
+  }
+  .medal-name {
+    font-size: 14px;
+    color: $celeste;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}

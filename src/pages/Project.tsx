@@ -11,6 +11,10 @@ import useDates from "../context/DatesContext";
 import { ImCross } from "react-icons/im";
 import { FaCheck } from "react-icons/fa";
 import EmptyInfo from "../components/EmptyInfo";
+import SelectedDaySetter from "../components/SelectedDaySetter";
+import { Link } from "react-router-dom";
+import { FaAngleLeft } from "react-icons/fa6";
+import NewSubprojectForm from "../components/NewSubprojectForm";
 
 export default function Project() {
   const { data } = useData();
@@ -43,11 +47,31 @@ export default function Project() {
     setProyecto(data.filter((proyecto) => proyecto.id == id)[0]);
   }, [data]);
 
+
   return (
     <>
       <div className={`main project ${theme}`}>
-        <div className="container-lg"></div>
-        <div className="subcat-list d-flex flex-column flex-md-row">
+        <div className="container-lg">
+          <div className="d-flex flex-column flex-md-row align-items-between justify-content-between">
+            <div className="project-header d-flex align-items-center">
+              <Link
+                to={"/project-tracker-ts-app/"}
+                aria-label={
+                  lang == "es" ? "Volver al inicio" : "Return to home"
+                }
+              >
+                <button className="btn btn-celeste flecha">
+                  <FaAngleLeft />
+                </button>
+              </Link>
+              <h2 className="bold project-title">
+                {capFirstLetter(proyecto.nombre)}
+              </h2>
+            </div>
+            <SelectedDaySetter />
+            <NewSubprojectForm proyecto={proyecto} />
+          </div>
+          <div className="subcat-list d-flex flex-column flex-md-row">
           <div className="subcats row d-flex">
             {proyecto.subproyectos.length > 0 &&
             proyecto.subproyectos.filter((subP) => subP.cerrada == false)
@@ -56,7 +80,7 @@ export default function Project() {
                 if (!subP.cerrada) {
                   return (
                     <div
-                      className="subcat texto-imp d-flex flex-column justify-content-between"
+                      className="subcat bold d-flex flex-column justify-content-between"
                       key={subP.idSubp}
                     >
                       <div className="fila-1 d-flex align-items-center justify-content-between">
@@ -195,7 +219,7 @@ export default function Project() {
               />
             )}
           </div>
-          <div className="tabs-wrapper">
+          <div className="tab-section">
             <Tabs>
               <Tabs.Titles
                 items={tabData.map(({ id, title }) => ({ id, title }))}
@@ -208,6 +232,7 @@ export default function Project() {
               />
             </Tabs>
           </div>
+        </div>
         </div>
       </div>
     </>

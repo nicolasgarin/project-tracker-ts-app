@@ -8,9 +8,11 @@ const Tabs: TabsWrapper & TabsComposition = ({ children }) => {
 Tabs.Titles = ({ items }) => {
   const { currentIndex, setCurrentIndex } = useTabsContext()
   return (
-    <div role="tablist">
+    <ul className='nav nav-tabs' role="tablist">
       {items.map(({ id, title }, index) => (
+        <li className='nav-item'>
         <button
+        className='nav-link'
           key={id}
           id={`tab-control-${id}`}
           role="tab"
@@ -22,8 +24,9 @@ Tabs.Titles = ({ items }) => {
         >
           {title}
         </button>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 

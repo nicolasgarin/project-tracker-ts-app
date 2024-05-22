@@ -56,7 +56,7 @@ export default function ProjectInfo({ project }: { project: IProject }) {
     <>
       <div className="stats-tab">
         <div className="content d-flex">
-          <div className="section-1 texto-imp">
+          <div className="section-1 bold">
             <div className="subsect">
               <div>
                 {lang === "es" ? "Fecha de creación: " : "Creation date: "}
@@ -85,7 +85,7 @@ export default function ProjectInfo({ project }: { project: IProject }) {
               <div>{lang === "es" ? "Cantidad:" : "Amount:"} {stats?.logros}</div>
             </div>
           </div>
-          <div className="section-2 texto-imp">
+          <div className="section-2 bold">
             <div className="subsect icon-container d-flex justify-content-center">
               {project.tipo == "Crecimiento" ? <FaBrain className="type-icon" /> : project.tipo == "Salud" ? <BsHeartPulseFill className="type-icon" /> : <FaPaintBrush className="type-icon" />}
             </div>

@@ -59,7 +59,7 @@ export default function ProjectLogros({ project }: { project: IProject }) {
                       src={logoAssign(logro.imgLogro)}
                       className="medal"
                     />
-                    <div className="medal-name texto-imp text-center">
+                    <div className="medal-name bold text-center">
                       {logro.nombreLogro.toUpperCase()}
                     </div>
                   </div>
@@ -67,7 +67,7 @@ export default function ProjectLogros({ project }: { project: IProject }) {
               })}
             </div>
           ) : (
-            <div className="msj d-flex align-items-center justify-content-center texto-imp">
+             <div className="msj d-flex align-items-center justify-content-center bold">
               {lang == "es"
                 ? "Aún no hay logros creados"
                 : "There are no achievements created yet"}

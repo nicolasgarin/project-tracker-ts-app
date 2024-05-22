@@ -50,16 +50,16 @@ export const dataReducer = (
       });
     case "AGREGAR_SUBPROYECTO":
       return state.map((proyecto) => {
-        if (proyecto.id === action.payload.idSubp) {
+        if (proyecto.id === action.payload.id) {
           return {
             ...proyecto,
-            subcategorias: [
+            subproyectos: [
               ...proyecto.subproyectos,
               {
-                nombreSubcat: action.payload.nombreSubp,
-                idSubcat: uuidv4(),
+                nombreSubp: action.payload.nombreSubp,
+                idSubp: uuidv4(),
                 cerrada: false,
-                diasCheckeados: [],
+                diasChecklist: [],
               },
             ],
           };
@@ -171,7 +171,7 @@ export const dataReducer = (
         if (proyecto.id === action.payload.id) {
           return {
             ...proyecto,
-            subcategorias: proyecto.subproyectos.map((subcat) => {
+            subproyectos: proyecto.subproyectos.map((subcat) => {
               if (subcat.idSubp === action.payload.idSubp) {
                 return {
                   ...subcat,
