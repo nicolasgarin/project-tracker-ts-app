@@ -1,0 +1,13 @@
+//EMPTY INFO
+.emptyinfo {
+  .emptyinfo-img {
+    width: 250px;
+    max-width: 100%;
+  }
+  @media (max-width: $lg) {
+    .emptyinfo-img {
+      width: 50%;
+      max-width: 200px;
+    }
+  }
+}
