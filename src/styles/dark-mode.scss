@@ -17,7 +17,9 @@ footer.dark {
 }
 
 //MAIN
-.main.dark {
+.home.dark,
+.instructions.dark,
+.project.dark {
   background-image: url("/background-dark.png");
 
   ::-webkit-scrollbar-thumb {

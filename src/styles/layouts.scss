@@ -1,0 +1,168 @@
+//HEADER
+.header {
+  background-color: $violeta-4;
+  border-bottom: 2px solid $violeta-4;
+  padding: 20px 0;
+  .color-1 {
+    color: $celeste;
+  }
+  .color-2 {
+    color: $celeste-3;
+  }
+  .options {
+    .qmark {
+      height: 28px;
+      width: 28px;
+    }
+    .logo-cont {
+      height: 28px;
+      width: 28px;
+      background-color: $celeste;
+    }
+    .lang-logo {
+      height: 25px;
+      width: 25px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .switch-container {
+      svg {
+        color: $celeste-2;
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        right: 0px;
+        width: 60px;
+        height: 34px;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $celeste;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: $violeta-2;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+      input:checked + .slider {
+        background-color: $celeste;
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px $celeste;
+      }
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      .slider.round {
+        border-radius: 34px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
+      }
+    }
+  }
+  @media (max-width: $sm) {
+    > .container-lg {
+      padding: 0 !important;
+    }
+    .sec-1 {
+      width: 100%;
+      padding-bottom: 15px;
+      border-bottom: 2px solid $celeste;
+      .logo {
+        height: 30px;
+      }
+    }
+    .options {
+      width: 100%;
+      padding-top: 15px;
+    }
+  }
+}
+
+//FOOTER
+footer {
+  background-color: $violeta-4;
+  padding: 30px 0;
+  .texto-footer {
+    color: $gris-claro;
+  }
+  .section-icons {
+    .ficon {
+      height: 24px;
+      width: 24px;
+      fill: $gris-claro;
+      &:hover {
+        fill: $blanco;
+      }
+    }
+  }
+  @media (max-width: $sm) {
+    padding: 20px 0;
+    > .container-lg {
+      padding: 0 !important;
+    }
+    .texto-footer {
+      width: 100%;
+      padding-bottom: 15px;
+      border-bottom: 2px solid $celeste;
+      .logo {
+        height: 30px;
+      }
+    }
+    .section-icons {
+      width: 100%;
+      padding-top: 15px;
+    }
+  }
+}
+
+//CARDLIST
+.cardlist {
+  overflow-x: scroll !important;
+  .row {
+    flex-wrap: nowrap !important;
+    gap: 15px;
+    padding-left: 12px;
+  }
+}
+
+//SELECT
+select {
+    padding: 8px 15px;
+    background-image: url("/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 20px;
+    background-origin: content-box;
+    border-radius: 8px;
+    appearance: none;
+    &.input-form {
+      width: 220px;
+    }
+    &.select-year {
+      width: 100px;
+    }
+  }

@@ -1,0 +1,37 @@
+@import "../../styles/variables.scss";
+
+//PROJECT COMPLETED
+.completed-subp {
+    height: inherit;
+    padding: 15px 0 15px 15px;
+    .filas {
+      height: 267px;
+      gap: 15px;
+      overflow-y: scroll;
+      padding-right: 15px;
+      .fila {
+        .nombre {
+          width: 170px;
+          color: $celeste;
+        }
+        .info {
+          gap: 10px;
+          color: $celeste;
+          .d-flex {
+            gap: 5px;
+          }
+        }
+        .btn {
+          margin-left: 15px;
+          svg {
+            fill: $celeste-4;
+          }
+          &:hover {
+            svg {
+              fill: $blanco;
+            }
+          }
+        }
+      }
+    }
+  }

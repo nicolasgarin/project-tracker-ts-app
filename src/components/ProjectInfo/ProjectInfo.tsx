@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import useUserOptions from "../context/UserOptionsContext";
+import useUserOptions from "../../context/UserOptionsContext";
 import { BsHeartPulseFill } from "react-icons/bs";
 import { FaBrain, FaPaintBrush } from "react-icons/fa";
-import { IProject } from "../@types/data";
-import { Stats } from "../@types/utils";
+import { IProject } from "../../@types/data";
+import { Stats } from "../../@types/utils";
+import "./ProjectInfo.scss";
 
 export default function ProjectInfo({ project }: { project: IProject }) {
   const [stats, setStats] = useState<Stats>();

@@ -1,6 +1,7 @@
 import satelite from "/satellite.gif";
 import telescopio from "/launching rocket.gif";
 import cohete from "/telescope.gif";
+import "./EmptyInfo.scss";
 
 export default function EmptyInfo({
   mssg,

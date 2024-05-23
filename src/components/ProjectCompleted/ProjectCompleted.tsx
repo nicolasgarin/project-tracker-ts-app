@@ -1,8 +1,9 @@
 import { FaCheck, FaUndo } from "react-icons/fa";
-import { IProject } from "../@types/data";
-import useUserOptions from "../context/UserOptionsContext";
-import useData from "../context/DataContext";
-import { capFirstLetter } from "../utils/reusableFunctions";
+import { IProject } from "../../@types/data";
+import useUserOptions from "../../context/UserOptionsContext";
+import useData from "../../context/DataContext";
+import { capFirstLetter } from "../../utils/reusableFunctions";
+import "./ProjectCompleted.scss";
 
 export default function ProjectCompleted({ project }: { project: IProject }) {
   const { dispatch } = useData();

@@ -1,12 +1,13 @@
 import { useState } from "react";
-import useUserOptions from "../context/UserOptionsContext";
-import rocket from "../assets/medals/rocket-medal.svg";
-import star from "../assets/medals/star-medal.svg";
-import cup from "../assets/medals/cup-medal.svg";
-import ray from "../assets/medals/ray-medal.svg";
-import crown from "../assets/medals/crown-medal.svg";
-import { IProject } from "../@types/data";
-import useData from "../context/DataContext";
+import useUserOptions from "../../context/UserOptionsContext";
+import rocket from "../../assets/medals/rocket-medal.svg";
+import star from "../../assets/medals/star-medal.svg";
+import cup from "../../assets/medals/cup-medal.svg";
+import ray from "../../assets/medals/ray-medal.svg";
+import crown from "../../assets/medals/crown-medal.svg";
+import { IProject } from "../../@types/data";
+import useData from "../../context/DataContext";
+import "./ProjectLogros.scss";
 
 export default function ProjectLogros({ project }: { project: IProject }) {
   const { dispatch } = useData();

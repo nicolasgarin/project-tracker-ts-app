@@ -1,7 +1,7 @@
 import { useState } from "react";
-import useUserOptions from "../context/UserOptionsContext";
-import useData from "../context/DataContext";
-import { IProject } from "../@types/data";
+import useUserOptions from "../../context/UserOptionsContext";
+import useData from "../../context/DataContext";
+import { IProject } from "../../@types/data";
 
 export default function NewSubprojectForm({
   proyecto,

@@ -1,0 +1,59 @@
+@import "../../styles/variables.scss";
+
+.stats-tab {
+    padding: 15px;
+    height: inherit;
+    .content {
+      gap: 30px;
+      color: $celeste;
+      height: 100%;
+      .subsect {
+        margin-bottom: 20px;
+        .subtitulo {
+          font-size: 18px;
+          margin-bottom: 10px;
+          border-bottom: 2px solid $celeste;
+        }
+      }
+      .section-1,
+      .section-2 {
+        height: inherit;
+      }
+      .section-1 {
+        width: -webkit-fill-available;
+      }
+      .section-2 {
+        .total {
+          margin-bottom: 15px;
+        }
+        .icon-container {
+          height: 95px;
+        }
+        .type-icon {
+          height: 100%;
+          width: auto;
+          color: $gris-claro;
+        }
+      }
+    }
+    @media (max-width: $sm) {
+      overflow-y: scroll;
+      .content {
+        gap: 15px !important;
+      }
+      .subsect {
+        margin-bottom: 10px !important;
+      }
+      .section-2 {
+        .total {
+          margin-bottom: 5px !important;
+        }
+        .g-15 {
+          gap: 5px !important;
+          .celda {
+            flex-shrink: 0 !important;
+          }
+        }
+      }
+    }
+  }

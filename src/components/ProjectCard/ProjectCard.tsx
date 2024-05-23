@@ -1,4 +1,4 @@
-import { IProject } from "../@types/data";
+import { IProject } from "../../@types/data";
 import { Link } from "react-router-dom";
 import { BsHeartPulseFill } from "react-icons/bs";
 import { FaBrain, FaPaintBrush, FaEye, FaStar } from "react-icons/fa";
@@ -6,10 +6,11 @@ import { GiNightSleep } from "react-icons/gi";
 import { CiStar } from "react-icons/ci";
 import { TbEyeClosed } from "react-icons/tb";
 import { ImCross } from "react-icons/im";
-import { capFirstLetter } from "../utils/reusableFunctions";
-import useData from "../context/DataContext";
-import useDates from "../context/DatesContext";
-import useUserOptions from "../context/UserOptionsContext";
+import { capFirstLetter } from "../../utils/reusableFunctions";
+import useData from "../../context/DataContext";
+import useDates from "../../context/DatesContext";
+import useUserOptions from "../../context/UserOptionsContext";
+import "./ProjectCard.scss";
 
 export default function ProjectCard({ project }: { project: IProject }) {
   const { dispatch } = useData();

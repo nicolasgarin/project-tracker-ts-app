@@ -1,5 +1,6 @@
-import { TabsWrapper, TabsComposition } from '../@types/tabComponent'
-import TabsProvider, { useTabsContext } from '../context/TabsContext'
+import { TabsWrapper, TabsComposition } from '../../@types/tabComponent'
+import TabsProvider, { useTabsContext } from '../../context/TabsContext'
+import "./TabsComponent.scss";
 
 const Tabs: TabsWrapper & TabsComposition = ({ children }) => {
   return <TabsProvider>{children}</TabsProvider>

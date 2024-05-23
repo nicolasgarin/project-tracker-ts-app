@@ -1,11 +1,11 @@
 import { useParams } from "react-router";
-import ProjectCompleted from "../components/ProjectCompleted";
-import Tabs from "../components/TabsComponent";
+import ProjectCompleted from "../components/ProjectCompleted/ProjectCompleted";
+import Tabs from "../components/TabsComponent/TabsComponent";
 import { useEffect, useState } from "react";
 import useData from "../context/DataContext";
-import ProjectLogros from "../components/ProjectLogros";
+import ProjectLogros from "../components/ProjectLogros/ProjectLogros";
 import useUserOptions from "../context/UserOptionsContext";
-import ProjectInfo from "../components/ProjectInfo";
+import ProjectInfo from "../components/ProjectInfo/ProjectInfo";
 import { capFirstLetter } from "../utils/reusableFunctions";
 import useDates from "../context/DatesContext";
 import { ImCross } from "react-icons/im";
@@ -14,14 +14,16 @@ import EmptyInfo from "../components/EmptyInfo/EmptyInfo";
 import SelectedDaySetter from "../components/SelectedDaySetter/SelectedDaySetter";
 import { Link } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa6";
-import NewSubprojectForm from "../components/NewSubprojectForm";
+import NewSubprojectForm from "../components/NewSubprojectForm/NewSubprojectForm";
+import { ThemedContainer } from "../layouts/ThemedContainer";
+import { MainContainer } from "../layouts/MainContainer";
 
 export default function Project() {
   const { data } = useData();
   const { dispatch } = useData();
   const { selectedDate } = useDates();
   const { id } = useParams();
-  const { theme, lang } = useUserOptions();
+  const { lang } = useUserOptions();
   const [proyecto, setProyecto] = useState(
     data.filter((proyecto) => proyecto.id == id)[0]
   );
@@ -47,31 +49,27 @@ export default function Project() {
     setProyecto(data.filter((proyecto) => proyecto.id == id)[0]);
   }, [data]);
 
-
   return (
-    <>
-      <div className={`main project ${theme}`}>
-        <div className="container-lg">
-          <div className="d-flex flex-column flex-md-row align-items-between justify-content-between">
-            <div className="project-header d-flex align-items-center">
-              <Link
-                to={"/project-tracker-ts-app/"}
-                aria-label={
-                  lang == "es" ? "Volver al inicio" : "Return to home"
-                }
-              >
-                <button className="btn btn-celeste flecha">
-                  <FaAngleLeft />
-                </button>
-              </Link>
-              <h2 className="bold project-title">
-                {capFirstLetter(proyecto.nombre)}
-              </h2>
-            </div>
-            <SelectedDaySetter />
-            <NewSubprojectForm proyecto={proyecto} />
+    <ThemedContainer className="project">
+      <MainContainer>
+        <div className="d-flex flex-column flex-md-row align-items-between justify-content-between">
+          <div className="project-header d-flex align-items-center">
+            <Link
+              to={"/project-tracker-ts-app/"}
+              aria-label={lang == "es" ? "Volver al inicio" : "Return to home"}
+            >
+              <button className="btn btn-celeste flecha">
+                <FaAngleLeft />
+              </button>
+            </Link>
+            <h2 className="bold project-title">
+              {capFirstLetter(proyecto.nombre)}
+            </h2>
           </div>
-          <div className="subcat-list d-flex flex-column flex-md-row">
+          <SelectedDaySetter />
+          <NewSubprojectForm proyecto={proyecto} />
+        </div>
+        <div className="subcat-list d-flex flex-column flex-md-row">
           <div className="subcats row d-flex">
             {proyecto.subproyectos.length > 0 &&
             proyecto.subproyectos.filter((subP) => subP.cerrada == false)
@@ -233,8 +231,7 @@ export default function Project() {
             </Tabs>
           </div>
         </div>
-        </div>
-      </div>
-    </>
+      </MainContainer>
+    </ThemedContainer>
   );
 }
