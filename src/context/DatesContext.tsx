@@ -9,8 +9,10 @@ const DatesContext = createContext<DateContextType | undefined>(
 export const DatesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [actualDate, setActualDate] = useState<IDate["dateObj"]>(dateToStringFormat(new Date()));
-  const [selectedDate, setSelectedDate] = useState<IDate["dateObj"]>(dateToStringFormat(new Date()));
+  const [actualDate, setActualDate] = useState<IDate["dateStrObj"]>(dateToStringFormat(new Date()));
+  const [selectedDate, setSelectedDate] = useState<IDate["dateStrObj"]>(dateToStringFormat(new Date()));
+  const [selectedMonth, setSelectedMonth] = useState<IDate["dateNumObj"]>(new Date().getMonth() + 1);
+  const [selectedYear, setSelectedYear] = useState<IDate["dateNumObj"]>(new Date().getFullYear());
 
   return (
     <DatesContext.Provider
@@ -30,6 +32,10 @@ export const DatesProvider: React.FC<{ children: React.ReactNode }> = ({
           setSelectedDate(dateToStringFormat(dateObj));
         },
         selectedDateIsToday: () => selectedDate == actualDate,
+        selectedMonth,
+        selectedYear,
+        setSelectedMonth: (month: number) => setSelectedMonth(month),
+        setSelectedYear: (year: number) => setSelectedYear(year),
       }}
     >
       {children}

@@ -7,6 +7,7 @@ import EmptyInfo from "../components/EmptyInfo/EmptyInfo";
 import { CardList } from "../layouts/CardList";
 import { MainContainer } from "../layouts/MainContainer";
 import { ThemedContainer } from "../layouts/ThemedContainer";
+import ProgressList from "../components/ProgressList/ProgressList";
 
 export default function Home() {
   const { data } = useData();
@@ -34,6 +35,7 @@ export default function Home() {
             img="telescopio"
           />
         )}
+        <ProgressList fullProjects={data} />
       </MainContainer>
     </ThemedContainer>
   );

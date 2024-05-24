@@ -39,6 +39,10 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
           cerrada: false,
           diasChecklist: [
             {
+              date: "2023-10-17",
+              status: 1,
+            },
+            {
               date: "2024-2-17",
               status: 1,
             },

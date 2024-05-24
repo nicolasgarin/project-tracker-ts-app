@@ -17,6 +17,7 @@ import { FaAngleLeft } from "react-icons/fa6";
 import NewSubprojectForm from "../components/NewSubprojectForm/NewSubprojectForm";
 import { ThemedContainer } from "../layouts/ThemedContainer";
 import { MainContainer } from "../layouts/MainContainer";
+import ProgressList from "../components/ProgressList/ProgressList";
 
 export default function Project() {
   const { data } = useData();
@@ -231,6 +232,7 @@ export default function Project() {
             </Tabs>
           </div>
         </div>
+        <ProgressList fullProjects={data} project={proyecto} />
       </MainContainer>
     </ThemedContainer>
   );
