@@ -36,6 +36,7 @@ Tabs.Contents = ({ items }) => {
   const { id, content } = items[currentIndex]
   return (
     <div
+      className={'tab-content'}
       key={id}
       id={`tab-content-${id}`}
       role="tabpanel"

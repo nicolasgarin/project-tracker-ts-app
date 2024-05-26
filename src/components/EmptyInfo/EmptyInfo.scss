@@ -2,9 +2,13 @@
 
 //EMPTY INFO
 .emptyinfo {
+  height: 100%;
   .emptyinfo-img {
     width: 250px;
     max-width: 100%;
+  }
+  p {
+    height: 100%;
   }
   @media (max-width: $lg) {
     .emptyinfo-img {

@@ -4,6 +4,7 @@ import useUserOptions from "../../context/UserOptionsContext";
 import useData from "../../context/DataContext";
 import { capFirstLetter } from "../../utils/reusableFunctions";
 import "./ProjectCompleted.scss";
+import EmptyInfo from "../EmptyInfo/EmptyInfo";
 
 export default function ProjectCompleted({ project }: { project: IProject }) {
   const { dispatch } = useData();
@@ -76,9 +77,9 @@ export default function ProjectCompleted({ project }: { project: IProject }) {
           })}
         </div>
       ) : (
-        <div className="msj d-flex align-items-center justify-content-center bold">
-          {lang == "es" ? "Todavía no hay subproyectos terminados" : "There are no completed subprojects yet"}
-        </div>
+        <>
+        <EmptyInfo mssg={lang == "es" ? "Todavía no hay subproyectos terminados" : "There are no completed subprojects yet"} />
+        </>
       )}
     </div>
   );

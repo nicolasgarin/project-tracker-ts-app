@@ -8,6 +8,7 @@ import crown from "../../assets/medals/crown-medal.svg";
 import { IProject } from "../../@types/data";
 import useData from "../../context/DataContext";
 import "./ProjectLogros.scss";
+import EmptyInfo from "../EmptyInfo/EmptyInfo";
 
 export default function ProjectLogros({ project }: { project: IProject }) {
   const { dispatch } = useData();
@@ -68,11 +69,7 @@ export default function ProjectLogros({ project }: { project: IProject }) {
               })}
             </div>
           ) : (
-             <div className="msj d-flex align-items-center justify-content-center bold">
-              {lang == "es"
-                ? "Aún no hay logros creados"
-                : "There are no achievements created yet"}
-            </div>
+            <EmptyInfo mssg={lang == "es" ? "Aún no hay logros creados" : "There are no achievements created yet"} />
           )}
         </div>
 

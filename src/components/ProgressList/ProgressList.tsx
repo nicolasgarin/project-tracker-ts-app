@@ -1,16 +1,16 @@
+import "./ProgressList.scss";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import useUserOptions from "../../context/UserOptionsContext";
+import useDates from "../../context/DatesContext";
+import SelectedMonthSetter from "../SelectedMonthSetter/SelectedMonthSetter";
+import { capFirstLetter } from "../../utils/reusableFunctions";
+import { IProject } from "../../@types/data";
 import { FaFlagCheckered } from "react-icons/fa6";
 import { GiNightSleep } from "react-icons/gi";
 import { FaCheck } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import useUserOptions from "../../context/UserOptionsContext";
-import { capFirstLetter } from "../../utils/reusableFunctions";
-import useDates from "../../context/DatesContext";
-import { IProject } from "../../@types/data";
-import SelectedMonthSetter from "../SelectedMonthSetter/SelectedMonthSetter";
 import rocket from "../../assets/logo-violeta.svg";
 import rocketdark from "../../assets/logo-celeste.svg";
-import "./ProgressList.scss";
 
 interface ProgressListProps {
   fullProjects: IProject[];
@@ -45,12 +45,11 @@ export default function ProgressList({
   const [availableYears, setAvailableYears] = useState<string[]>([]);
 
   useEffect(() => {
-    !project ? filterFullTable(fullProjects) : null;
+    !project
+      ? (filterFullTable(fullProjects),
+        localStorage.setItem("showArchiv", showArchiv))
+      : null;
   }, [project, fullProjects, showArchiv]);
-
-  useEffect(() => {
-    localStorage.setItem("showArchiv", showArchiv);
-  }, [showArchiv]);
 
   useEffect(() => {
     setCantDias(new Date(selectedYear, selectedMonth, 0).getDate());
@@ -82,7 +81,6 @@ export default function ProgressList({
 
   const CeldasMes = () => {
     var celdas: JSX.Element[] = [];
-
     for (let i = 1; i <= cantDias; i++) {
       celdas.push(
         <div
@@ -100,7 +98,6 @@ export default function ProgressList({
 
   const CeldasMesLetras = () => {
     var celdas: JSX.Element[] = [];
-
     for (let i = 1; i <= cantDias; i++) {
       let letter = new Date(selectedYear, selectedMonth - 1, i)
         .toLocaleDateString(lang, {
