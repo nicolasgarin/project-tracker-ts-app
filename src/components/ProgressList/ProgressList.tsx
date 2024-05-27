@@ -173,11 +173,15 @@ export default function ProgressList({
             <div className="left-sec">
               {project
                 ? project.subproyectos.map((subcat) => {
+                  if (!showFinished && subcat.cerrada) { 
+                    null
+                  } else {
                     return (
                       <div className="nombre-fila bold">
                         {subcat.nombreSubp}
                       </div>
                     );
+                  }
                   })
                 : filteredData.map((proyecto) => {
                     return (
