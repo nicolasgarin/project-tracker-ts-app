@@ -34,7 +34,7 @@ export default function ProgressList({
     showMain,
     toggleShowMain,
   } = useUserOptions();
-  const { selectedYear, selectedMonth, setSelectedYear, sestSelectedMonth } = useDates();
+  const { selectedYear, selectedMonth, setSelectedYear, setSelectedMonth } = useDates();
   const [showArchiv, setShowArchiv] = useState<string>(
     localStorage.getItem("showArchiv") || "false"
   );
