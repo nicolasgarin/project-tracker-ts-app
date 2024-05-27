@@ -44,6 +44,8 @@ export default function ProgressList({
     new Date(selectedYear, selectedMonth, 0).getDate()
   );
   const [availableYears, setAvailableYears] = useState<string[]>([]);
+  var totalDiasSubp = [];
+  var totalDiasP = [];
 
   useEffect(() => {
     !project
@@ -205,6 +207,7 @@ export default function ProgressList({
                 ? project.subproyectos.map((subP) => {
                     let diasArray: IDia[] = [];
                     subP.diasChecklist.map((dia) => {
+                      totalDiasSubp.push(dia.date);
                       if (dia.date.split("-")[0] == selectedYear.toString()) {
                         if (
                           dia.date.split("-")[1] == selectedMonth.toString()
