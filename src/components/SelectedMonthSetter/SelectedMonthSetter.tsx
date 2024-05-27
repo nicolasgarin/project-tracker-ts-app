@@ -8,11 +8,11 @@ import { FaAngleRight } from "react-icons/fa6";
 
 interface MonthSetterProps {
   availableYears: string[];
-  firstMonthToShow?: number;
+  btnDisabled?: true;
 }
 
 export default function SelectedMonthSetter({
-  availableYears, firstMonthToShow
+  availableYears, btnDisabled
 }: MonthSetterProps) {
   const {
     actualDate,
@@ -83,7 +83,7 @@ export default function SelectedMonthSetter({
           className="btn btn-celeste flecha"
           onClick={prevMonth}
           disabled={
-            firstMonthToShow ? selectedMonth == firstMonthToShow && !availableYears.includes((selectedYear - 1).toString())
+            btnDisabled ? btnDisabled
             :
             selectedMonth == 1 &&
             !availableYears.includes((selectedYear - 1).toString())
