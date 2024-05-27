@@ -44,7 +44,7 @@ export default function ProgressList({
     new Date(selectedYear, selectedMonth, 0).getDate()
   );
   const [availableYears, setAvailableYears] = useState<string[]>([]);
-  var totalDiasSubp<string[]> = [];
+  var totalDiasSubp:string[] = [];
   //var totalDiasP = [];
 
   useEffect(() => {
