@@ -34,7 +34,7 @@ export default function ProgressList({
     showMain,
     toggleShowMain,
   } = useUserOptions();
-  const { selectedYear, selectedMonth, actualDate } = useDates();
+  const { selectedYear, selectedMonth, setSelectedYear, sestSelectedMonth } = useDates();
   const [showArchiv, setShowArchiv] = useState<string>(
     localStorage.getItem("showArchiv") || "false"
   );
@@ -54,6 +54,11 @@ export default function ProgressList({
   useEffect(() => {
     setCantDias(new Date(selectedYear, selectedMonth, 0).getDate());
   }, [selectedMonth]);
+
+  useEffect(() => {
+    setSelectedYear(availableYears[0]);
+    sestSelectedMonth(1);
+  }, []);
 
   project
     ? project.subproyectos.map((subP) => {
