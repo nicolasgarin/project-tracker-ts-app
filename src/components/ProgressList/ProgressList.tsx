@@ -45,7 +45,7 @@ export default function ProgressList({
   );
   const [availableYears, setAvailableYears] = useState<string[]>([]);
   var totalDiasSubp = [];
-  var totalDiasP = [];
+  //var totalDiasP = [];
 
   useEffect(() => {
     !project
