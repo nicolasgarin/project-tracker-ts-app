@@ -173,7 +173,7 @@ export default function ProgressList({
             <div className="left-sec">
               {project
                 ? project.subproyectos.map((subcat) => {
-                  if (showFinished == "false" && subcat.cerrada == "true") { 
+                  if (showFinished == "false" && subcat.cerrada) { 
                     null
                   } else {
                     return (
