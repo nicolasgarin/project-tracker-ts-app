@@ -221,7 +221,7 @@ export default function ProgressList({
                         }
                       }
                     });
-                    console.log(totalDiasSubP.sort());
+                    console.log(totalDiasSubp.sort());
                     var celdasP = [];
                     for (let i = 1; i <= cantDias; i++) {
                       diasArray.filter(
