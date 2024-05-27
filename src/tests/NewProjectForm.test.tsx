@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import pkg from "vitest";
 const { beforeEach, describe, expect, it } = pkg;
 import NewProjectForm from "../components/NewProjectForm/NewProjectForm";
