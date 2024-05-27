@@ -5,6 +5,7 @@ import useUserOptions from "../../context/UserOptionsContext";
 import useDates from "../../context/DatesContext";
 import SelectedMonthSetter from "../SelectedMonthSetter/SelectedMonthSetter";
 import { capFirstLetter } from "../../utils/reusableFunctions";
+import { getMonthFromString } from "../../utils/dateFunctions";
 import { IProject } from "../../@types/data";
 import { FaFlagCheckered } from "react-icons/fa6";
 import { GiNightSleep } from "react-icons/gi";
@@ -57,7 +58,7 @@ export default function ProgressList({
 
   useEffect(() => {
     setSelectedYear(parseInt(availableYears[0]));
-    setSelectedMonth(actualDate.getMonth());
+    setSelectedMonth(getMonthFromString(actualDate));
   }, []);
 
   project
