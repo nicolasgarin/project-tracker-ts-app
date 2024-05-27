@@ -24,3 +24,8 @@ export function getMonthName(monthNumber: number, lang: string) {
   varDate.setMonth(monthNumber - 1);
   return varDate.toLocaleString(`${lang}-US`, { month: "long" });
 }
+
+export function getMonthFromString(date: string) {
+  const monthNum = parseInt(date.split("-")[1]);
+  return monthNum;
+}
