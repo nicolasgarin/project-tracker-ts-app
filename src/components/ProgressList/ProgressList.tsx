@@ -56,7 +56,7 @@ export default function ProgressList({
   }, [selectedMonth]);
 
   useEffect(() => {
-    setSelectedYear(availableYears[0]);
+    setSelectedYear(parseInt(availableYears[0]));
     setSelectedMonth(1);
   }, []);
 
