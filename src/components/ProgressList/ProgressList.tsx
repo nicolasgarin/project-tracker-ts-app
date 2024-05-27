@@ -219,7 +219,7 @@ export default function ProgressList({
                         }
                       }
                     });
-                    console.log(totalDiasSubP);
+                    console.log(totalDiasSubP.sort());
                     var celdasP = [];
                     for (let i = 1; i <= cantDias; i++) {
                       diasArray.filter(
