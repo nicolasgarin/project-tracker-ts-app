@@ -207,8 +207,10 @@ export default function ProgressList({
                 ? project.subproyectos.map((subP) => {
                     let diasArray: IDia[] = [];
                     subP.diasChecklist.map((dia) => {
-                      if !(subP.cerrado && !showFinished) {
-                        totalDiasSubp.push(dia.date);
+                      if (subP.cerrado && !showFinished) {
+                      null
+                      } else {
+                          totalDiasSubp.push(dia.date);
                       }
 
                       if (dia.date.split("-")[0] == selectedYear.toString()) {
