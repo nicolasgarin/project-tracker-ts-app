@@ -207,7 +207,10 @@ export default function ProgressList({
                 ? project.subproyectos.map((subP) => {
                     let diasArray: IDia[] = [];
                     subP.diasChecklist.map((dia) => {
-                      totalDiasSubp.push(dia.date);
+                      if !(subP.cerrado && !showFinished) {
+                        totalDiasSubp.push(dia.date);
+                      }
+
                       if (dia.date.split("-")[0] == selectedYear.toString()) {
                         if (
                           dia.date.split("-")[1] == selectedMonth.toString()
@@ -216,8 +219,7 @@ export default function ProgressList({
                         }
                       }
                     });
-                  console.log(totalDiasSubp.sort())
-
+                    console.log(totalDiasSubP);
                     var celdasP = [];
                     for (let i = 1; i <= cantDias; i++) {
                       diasArray.filter(
