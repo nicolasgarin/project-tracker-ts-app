@@ -8,6 +8,7 @@ export type DateContextType = {
   selectedDate: IDate["dateStrObj"];
   selectedMonth: IDate["dateNumObj"];
   selectedYear: IDate["dateNumObj"];
+  cantDiasSelectedMonth: number;
   updateActualDate: (date: string) => void;
   updateSelectedDate: (date: string) => void;
   prevSelectedDate: () => void;
@@ -15,4 +16,5 @@ export type DateContextType = {
   selectedDateIsToday: () => boolean;
   setSelectedMonth: (month: number) => void;
   setSelectedYear: (year: number) => void;
+  setCantDiasSelectedMonth: (cant: number) => void;
 };

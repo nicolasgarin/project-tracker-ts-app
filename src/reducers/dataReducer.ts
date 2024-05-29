@@ -72,7 +72,7 @@ export const dataReducer = (
         if (proyecto.id === action.payload.id) {
           return {
             ...proyecto,
-            subcategorias: proyecto.subproyectos.filter(
+            subproyectos: proyecto.subproyectos.filter(
               (subP) => subP.idSubp !== action.payload.idSubp
             ),
           };

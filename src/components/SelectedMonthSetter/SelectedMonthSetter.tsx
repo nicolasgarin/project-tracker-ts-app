@@ -8,7 +8,7 @@ import { FaAngleRight } from "react-icons/fa6";
 
 interface MonthSetterProps {
   availableYears: string[];
-  btnDisabled?: true;
+  btnDisabled?: boolean;
 }
 
 export default function SelectedMonthSetter({

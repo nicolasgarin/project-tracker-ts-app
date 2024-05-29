@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { IDate, DateContextType } from "../@types/date";
 import { dateToStringFormat } from "../utils/dateFunctions";
 
@@ -13,6 +13,11 @@ export const DatesProvider: React.FC<{ children: React.ReactNode }> = ({
   const [selectedDate, setSelectedDate] = useState<IDate["dateStrObj"]>(dateToStringFormat(new Date()));
   const [selectedMonth, setSelectedMonth] = useState<IDate["dateNumObj"]>(new Date().getMonth() + 1);
   const [selectedYear, setSelectedYear] = useState<IDate["dateNumObj"]>(new Date().getFullYear());
+  const [cantDiasSelectedMonth, setCantDiasSelectedMonth] = useState(new Date(selectedYear, selectedMonth, 0).getDate());
+
+  useEffect(() => {
+    setCantDiasSelectedMonth(new Date(selectedYear, selectedMonth, 0).getDate());
+  }, [selectedMonth]);
 
   return (
     <DatesContext.Provider
@@ -36,6 +41,8 @@ export const DatesProvider: React.FC<{ children: React.ReactNode }> = ({
         selectedYear,
         setSelectedMonth: (month: number) => setSelectedMonth(month),
         setSelectedYear: (year: number) => setSelectedYear(year),
+        cantDiasSelectedMonth,
+        setCantDiasSelectedMonth: (cant: number) => setCantDiasSelectedMonth(cant),
       }}
     >
       {children}
