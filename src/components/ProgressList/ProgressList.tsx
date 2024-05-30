@@ -258,7 +258,14 @@ export default function ProgressList({
               {lang == "es" ? "Progresión" : "Progress"}
             </h3>
           )}
-
+          {
+            (project &&  (project.subproyectos.filter((subp) => subp.cerrada == false).length == 0 || (project.subproyectos.filter((subp) => subp.cerrada == false).length == 0 && (showFinished == "true" || showMain == "true")))
+            || !project) ?
+            <h3 className="titulo">
+              {lang == "es" ? "se muestra cuando no tiene que mostrarse el resto" : "Progress"}
+            </h3>
+            : null
+          }
           <div className="date-setter d-flex flex-column flex-sm-row justify-content-between">
             <SelectedMonthSetter
               availableYears={availableYears}
