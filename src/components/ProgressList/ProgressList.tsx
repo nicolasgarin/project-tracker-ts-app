@@ -264,9 +264,13 @@ export default function ProgressList({
             <h3 className="titulo">
               {lang == "es" ? "se muestra cuando no tiene que mostrarse el resto" : "Progress"}
             </h3>
-            : null
-          }
-          <div className="date-setter d-flex flex-column flex-sm-row justify-content-between">
+            : 
+            (
+            <>
+            <h3 className="titulo">
+              {lang == "es" ? "se muestra cuando se muestra el resto" : "Progress"}
+            </h3>
+            <div className="date-setter d-flex flex-column flex-sm-row justify-content-between">
             <SelectedMonthSetter
               availableYears={availableYears}
               btnDisabled={
@@ -546,6 +550,9 @@ export default function ProgressList({
               </div>
             </div>
           </div>
+          </>)
+          }
+
         </div>)
       )
       :
