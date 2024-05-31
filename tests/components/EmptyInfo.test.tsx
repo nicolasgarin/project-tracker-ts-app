@@ -14,7 +14,7 @@ describe('EmptyInfo', () => {
     })
 
     it('should display image if provided', () => {
-        render(<EmptyInfo mssg='Texto de prueba' img='satelite' />);
+        render(<EmptyInfo mssg='Texto de prueba' img='cohete' />);
 
         const image = screen.getByRole('img');
         expect(image).toBeInTheDocument();

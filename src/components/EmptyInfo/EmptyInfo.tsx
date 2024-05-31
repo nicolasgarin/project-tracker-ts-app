@@ -1,7 +1,6 @@
 import satelite from "/satellite.gif";
 import telescopio from "/launching rocket.gif";
 import cohete from "/telescope.gif";
-import file from "/fileNotFound.gif";
 import "./EmptyInfo.scss";
 
 export default function EmptyInfo({
@@ -9,7 +8,7 @@ export default function EmptyInfo({
   img,
 }: {
   mssg: string;
-  img?: string;
+  img?: "satelite" | "telescopio" | "cohete";
 }) {
   function imgAssign(string: string) {
     switch (string) {
@@ -19,8 +18,6 @@ export default function EmptyInfo({
         return telescopio;
       case "cohete":
         return cohete;
-        case "file":
-        return file;
       default:
         return "";
     }

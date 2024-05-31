@@ -47,7 +47,7 @@ export default function ProjectCard({ project }: { project: IProject }) {
         </div>
         <div className="card-body d-flex flex-column justify-content-between">
           <div className="d-flex justify-content-between">
-            <div className="subcat d-flex flex-column w-100">
+            <div className="subcats d-flex flex-column w-100">
               {project.subproyectos.length > 0 &&
               project.subproyectos.filter((subP) => subP.cerrada == false)
                 .length > 0 ? (

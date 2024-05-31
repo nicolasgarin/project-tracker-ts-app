@@ -74,8 +74,11 @@ export default function Project() {
               proyecto.subproyectos.map((subP) => {
                 if (!subP.cerrada) {
                   return (
-                    <SubprojectCard key={subP.idSubp} proyecto={proyecto} subP={subP} />
-
+                    <SubprojectCard
+                      key={subP.idSubp}
+                      proyecto={proyecto}
+                      subP={subP}
+                    />
                   );
                 }
               })
