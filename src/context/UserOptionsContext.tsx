@@ -20,13 +20,17 @@ export const UserOptionsProvider: React.FC<{ children: React.ReactNode }> = ({
   const [showMain, setShowMain] = useState<UserOp["option"]>(
     localStorage.getItem("showMain") || "false"
   );
+  const [showArchiv, setShowArchiv] = useState<UserOp["option"]>(
+    localStorage.getItem("showArchiv") || "false"
+  );
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
     localStorage.setItem("lang", lang);
     localStorage.setItem("showFinished", showFinished);
     localStorage.setItem("showMain", showMain);
-  }, [theme, lang, showFinished, showMain]);
+    localStorage.setItem("showArchiv", showArchiv);
+  }, [theme, lang, showFinished, showMain, showArchiv]);
 
   return (
     <UserOptionsContext.Provider
@@ -41,6 +45,9 @@ export const UserOptionsProvider: React.FC<{ children: React.ReactNode }> = ({
         showMain,
         toggleShowMain: () =>
           setShowMain(showMain === "true" ? "false" : "true"),
+        showArchiv,
+        toggleShowArchiv: () =>
+          setShowArchiv(showArchiv === "true" ? "false" : "true"),
       }}
     >
       {children}

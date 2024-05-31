@@ -127,48 +127,13 @@
       overflow-x: scroll;
       flex-wrap: nowrap;
       padding-bottom: 40px;
-      .subcat {
-        width: 200px;
-        height: 100%;
-        background-color: $celeste-3;
-        padding: 15px;
-        border-radius: 8px;
-        color: $violeta-4;
-        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-        .fila-1 {
-          border-bottom: 2px solid $violeta-3;
-          padding-bottom: 15px;
-        }
-        .fila-2 {
-          .celda {
-            .check-ic {
-              color: $violeta-3;
-              display: none;
-            }
-            &.check-1,
-            &.check-2,
-            &.check-3,
-            &.check-4 {
-              .check-ic {
-                display: block;
-              }
-            }
-          }
-        }
-        .subcat-name {
-          font-size: 19px;
-        }
-      }
+
     }
   }
   @media (max-width: $lg) {
     .subcat-list {
       height: unset;
       margin: 0;
-      .subcats {
-        gap: 15px;
-        height: 350px;
-      }
     }
   }
   @media (max-width: $md) {

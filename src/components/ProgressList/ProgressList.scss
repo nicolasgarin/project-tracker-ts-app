@@ -15,28 +15,6 @@
           color: $violeta-3;
         }
       }
-      .filter-options {
-        gap: 20px;
-        margin-right: 15px;
-        .op {
-          gap: 10px;
-        }
-        svg {
-          color: $violeta-3;
-        }
-        img {
-          height: 20px;
-          width: auto;
-        }
-        .celda {
-          svg {
-            color: $violeta-3 !important;
-          }
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
     }
     @media (max-width: $md) {
       .date-setter {
@@ -48,11 +26,6 @@
           .month-name {
             margin: 0 22px;
           }
-        }
-        .filter-options {
-          margin-top: 15px;
-          margin-left: auto;
-          margin-right: 0;
         }
       }
     }

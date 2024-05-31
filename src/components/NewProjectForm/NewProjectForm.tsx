@@ -26,10 +26,10 @@ export default function NewProjectForm() {
   }
 
   return (
-    <form className="form-nuevo" onSubmit={handleSubmit}>
+    <form className="form-nuevo" onSubmit={handleSubmit} role="form" >
       <div className="container-lg d-flex flex-column flex-md-row align-items-end align-items-md-center justify-content-end">
         <div className="form-container d-flex align-items-center justify-content-center">
-          <label className="form-label" htmlFor="item">
+          <label className="form-label" htmlFor="projectName">
             {lang == "es" ? "Nuevo proyecto" : "New project"}
           </label>
           <input
@@ -38,7 +38,7 @@ export default function NewProjectForm() {
             type="text"
             value={nombreP}
             onChange={(e) => setNombreP(e.target.value)}
-            id="item"
+            id="projectName"
           />
         </div>
         <div className="form-container d-flex align-items-center justify-content-center">

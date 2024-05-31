@@ -31,7 +31,7 @@ export default function EmptyInfo({
       {img && (
         <img className="emptyinfo-img mb-3 animation" src={imgAssign(img)} />
       )}
-      <div className="message bold">{mssg}</div>
+      <h4 className="message bold">{mssg}</h4>
     </div>
   );
 }

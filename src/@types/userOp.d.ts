@@ -7,8 +7,10 @@ export type UserOpContextType = {
   lang: UserOp["option"];
   showFinished: UserOp["option"];
   showMain: UserOp["option"];
+  showArchiv: UserOp["option"];
   toggleTheme: () => void;
   toggleLang: () => void;
   toggleShowFinished: () => void;
   toggleShowMain: () => void;
+  toggleShowArchiv: () => void;
 };
