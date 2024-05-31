@@ -16,13 +16,14 @@ export default function SelectedDaySetter() {
 
   return (
     <>
-      <div className="day-setter d-flex align-items-center">
+      <div id="day-setter" className="day-setter d-flex align-items-center">
         <button
+          id="prev-day"
           aria-label={lang == "es" ? "Mes previo" : "Previous month"}
           className="btn btn-celeste flecha"
           onClick={prevSelectedDate}
         >
-          <FaAngleLeft />
+          <FaAngleLeft role="img" />
         </button>
         <div className="bold day-name">
           {selectedDateIsToday()
@@ -32,12 +33,13 @@ export default function SelectedDaySetter() {
             : dayStringFormat(selectedDate, lang)}
         </div>
         <button
+          id="next-day"
           aria-label={lang == "es" ? "Mes siguiente" : "Next month"}
           className="btn btn-celeste flecha"
           onClick={nextSelectedDate}
           disabled={selectedDateIsToday()}
         >
-          <FaAngleRight />
+          <FaAngleRight role="img" />
         </button>
       </div>
     </>

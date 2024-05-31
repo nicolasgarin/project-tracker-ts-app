@@ -22,9 +22,9 @@ export default function NewSubprojectForm({
   }
 
   return (
-    <form className="form-nueva-subcat" onSubmit={handleSubP}>
+    <form className="form-nueva-subcat" onSubmit={handleSubP} role="form">
       <div className="container-lg d-flex align-items-center justify-content-end">
-        <label className="form-label bold" htmlFor="item">
+        <label className="form-label bold" htmlFor="nombreSubproyecto">
           {lang == "es" ? "Nuevo subproyecto" : "New subproject"}
         </label>
         <input
@@ -33,7 +33,7 @@ export default function NewSubprojectForm({
           type="text"
           value={nuevoSubP}
           onChange={(e) => setNuevoSubP(e.target.value)}
-          id="item"
+          id="nombreSubproyecto"
         />
         <button
           type="submit"
