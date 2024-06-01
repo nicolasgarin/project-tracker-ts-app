@@ -5,8 +5,14 @@ import { DatesProvider } from "../src/context/DatesContext";
 import { UserOptionsProvider } from "../src/context/UserOptionsContext";
 
 export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
+  const optionsProviderProps = {
+    lang: "en",
+    showFinished: "false",
+    showMain: "true",
+    showArchiv: "false",
+  }
   return (
-    <UserOptionsProvider>
+    <UserOptionsProvider {...optionsProviderProps}>
       <DatesProvider>
         <DataProvider>{children}</DataProvider>
       </DatesProvider>

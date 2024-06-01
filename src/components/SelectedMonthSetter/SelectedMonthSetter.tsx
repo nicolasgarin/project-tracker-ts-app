@@ -8,7 +8,7 @@ import { FaAngleRight } from "react-icons/fa6";
 
 interface MonthSetterProps {
   availableYears: string[];
-  btnDisabled?: boolean;
+  btnDisabled: boolean;
 }
 
 export default function SelectedMonthSetter({
@@ -48,7 +48,7 @@ export default function SelectedMonthSetter({
   }
 
   return (
-    <div className="d-flex">
+    <div id="month-setter" className="d-flex">
       <select
         aria-label={lang == "es" ? "Seleccionar año" : "Select year"}
         className="select-year"
@@ -56,6 +56,7 @@ export default function SelectedMonthSetter({
         id="year"
         value={selectedYear}
         onChange={handleYear}
+        role="listbox"
       >
         {availableYears.length > 0 ? (
           availableYears
@@ -79,6 +80,7 @@ export default function SelectedMonthSetter({
       </select>
       <div className="month-setter d-flex align-items-center justify-content-between">
         <button
+          id="prev-month"
           aria-label={lang == "es" ? "Mes previo" : "Previous month"}
           className="btn btn-celeste flecha"
           onClick={prevMonth}
@@ -95,6 +97,7 @@ export default function SelectedMonthSetter({
           {capFirstLetter(getMonthName(selectedMonth, lang))}
         </div>
         <button
+          id="next-month"
           aria-label={lang == "es" ? "Mes siguiente" : "Next month"}
           className="btn btn-celeste flecha"
           onClick={nextMonth}

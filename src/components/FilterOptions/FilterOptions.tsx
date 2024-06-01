@@ -22,14 +22,16 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
   } = useUserOptions();
 
   return (
-    <div className="filter-options d-flex align-items-center">
+    <div id="filter-options" className="filter-options d-flex align-items-center">
       {!project ? (
         <div className="op d-flex align-items-center">
           <GiNightSleep />
           <div
+            id="showArchivCheckbox"
             className="d-flex align-items-center justify-content-center celda celda-md"
             onClick={toggleShowArchiv}
-          >
+            role="checkbox"
+            >
             {showArchiv == "false" ? null : <FaCheck />}
           </div>
         </div>
@@ -40,6 +42,7 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
             <div
               className="d-flex align-items-center justify-content-center celda celda-md"
               onClick={toggleShowFinished}
+              role="checkbox"
             >
               {showFinished == "false" ? null : <FaCheck />}
             </div>
@@ -49,6 +52,7 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
             <div
               className="d-flex align-items-center justify-content-center celda celda-md"
               onClick={toggleShowMain}
+              role="checkbox"
             >
               {showMain == "false" ? null : <FaCheck />}
             </div>
