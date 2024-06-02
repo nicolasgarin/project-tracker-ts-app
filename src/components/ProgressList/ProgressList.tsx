@@ -41,6 +41,7 @@ export default function ProgressList({
   var celdasMesLetras = [];
   var totalDiasSubp: IDia[] = [];
   var listaTotalDiasSubp: IDia[] = [];
+  var listaTotalDiasProj: IDia[] = [];
 
   useEffect(() => {
     !project
@@ -97,6 +98,7 @@ export default function ProgressList({
     : filteredData.map((project) => {
         project.subproyectos.map((subP) => {
           subP.diasChecklist.map((dia) => {
+            listaTotalDiasProj.push(dia);
             if (!availableYears.includes(dia.date.split("-")[0])) {
               setAvailableYears([...availableYears, dia.date.split("-")[0]]);
             }
@@ -109,47 +111,6 @@ export default function ProgressList({
       ? setFilteredData(data.filter((d) => d.archivado == false))
       : setFilteredData(data);
   }
-  /*
-  const CeldasMes = () => {
-    var celdas: JSX.Element[] = [];
-    for (let i = 1; i <= cantDiasSelectedMonth; i++) {
-      celdas.push(
-        <div
-          key={i}
-          className={
-            "celda num d-flex justify-content-center align-items-center"
-          }
-        >
-          {i}
-        </div>
-      );
-    }
-    return celdas;
-  };
-
-  const CeldasMesLetras = () => {
-    var celdas: JSX.Element[] = [];
-    for (let i = 1; i <= cantDiasSelectedMonth; i++) {
-      let letter = new Date(selectedYear, selectedMonth - 1, i)
-        .toLocaleDateString(lang, {
-          weekday: "long",
-        })[0]
-        .toUpperCase();
-      celdas.push(
-        <div
-          key={i}
-          className={
-            "celda letra d-flex align-items-center justify-content-center"
-          }
-        >
-          {letter}
-        </div>
-      );
-    }
-    return celdas;
-  };
-
-*/
 
   return (
     <>
@@ -183,6 +144,14 @@ export default function ProgressList({
                       listaTotalDiasSubp[0].date.split("-")[1] ==
                         selectedMonth.toString()
                     : project && listaTotalDiasSubp.length == 0
+                    ? true
+                    :
+                    !project && listaTotalDiasProj.length > 0
+                    ? listaTotalDiasProj[0].date.split("-")[0] ==
+                        selectedYear.toString() &&
+                      listaTotalDiasProj[0].date.split("-")[1] ==
+                        selectedMonth.toString()
+                    : !project && listaTotalDiasProj.length == 0
                     ? true
                     : false
                 }
@@ -337,9 +306,9 @@ export default function ProgressList({
                           });
                         });
                         totalDiasProj.sort(function (a, b) {
-                          return new Date(a.date) < new Date(b.date)
+                          return new Date(a.date) > new Date(b.date)
                             ? 1
-                            : new Date(a.date) > new Date(b.date)
+                            : new Date(a.date) < new Date(b.date)
                             ? -1
                             : 0;
                         });
@@ -420,7 +389,7 @@ export default function ProgressList({
                       })}
                   {project && showMain == "true" ? (
                     <div className="prog-table-item d-flex align-items-center">
-                      <div className="tabla-dias d-flex">{}</div>
+                      <div className="tabla-dias d-flex">{<div>hola</div>}</div>
                     </div>
                   ) : null}
                 </div>
