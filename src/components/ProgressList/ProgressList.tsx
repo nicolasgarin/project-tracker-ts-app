@@ -63,7 +63,7 @@ export default function ProgressList({
       .toUpperCase();
     celdasMes.push(
       <div
-        key={i}
+        key={`${i}-celdasMes`}
         className={"celda num d-flex justify-content-center align-items-center"}
       >
         {i}
@@ -71,7 +71,7 @@ export default function ProgressList({
     );
     celdasMesLetras.push(
       <div
-        key={i}
+        key={`${i}-celdasMesLetras`}
         className={
           "celda letra d-flex align-items-center justify-content-center"
         }
@@ -112,7 +112,7 @@ export default function ProgressList({
       .length > 0
       ? celdasListaTotalDiasSubp.push(
           <div
-            key={i}
+            key={`${i}-celdasListaTotalDiasSubp`}
             className={`celda ${
               totalDiasSubp.filter(
                 (dia) =>
@@ -144,7 +144,7 @@ export default function ProgressList({
         )
       : celdasListaTotalDiasSubp.push(
           <div
-            key={i}
+            key={`${i}-celdasListaTotalDiasSubp`}
             className={`celda ${
               (listaTotalDiasSubp.length > 0 &&
                 new Date(
@@ -216,14 +216,14 @@ export default function ProgressList({
             </div>
             <div className="cont-derecho">
               <div className="prog-table-item d-flex">
-                <div className="left-sec">
+                <div key="1" className="left-sec">
                   {project
                     ? project.subproyectos.map((subcat) => {
                         if (showFinished == "false" && subcat.cerrada == true) {
                           null;
                         } else {
                           return (
-                            <div className="nombre-fila bold">
+                            <div key={`${subcat.nombreSubp}`} className="nombre-fila bold">
                               {subcat.nombreSubp}
                             </div>
                           );
@@ -237,7 +237,7 @@ export default function ProgressList({
                             to={`/project-tracker-ts-app/projects/${proyecto.id}`}
                           >
                             <div
-                              key={proyecto.id}
+                              key={`${proyecto.id}-nombre-fila`}
                               className="nombre-fila plm bold texto-celeste"
                             >
                               {capFirstLetter(proyecto.nombre)}
@@ -253,7 +253,7 @@ export default function ProgressList({
                     ) : null
                   ) : null}
                 </div>
-                <div className="right-sec">
+                <div key="2" className="right-sec">
                   <div className="tabla-dias d-flex">{celdasMes}</div>
                   <div className="tabla-dias d-flex mb-3">
                     {celdasMesLetras}
@@ -282,7 +282,7 @@ export default function ProgressList({
                           ).length > 0
                             ? celdasP.push(
                                 <div
-                                  key={i}
+                                  key={`${i}-celdasP`}
                                   className={`celda ${
                                     diasArray.filter(
                                       (dia) =>
@@ -308,7 +308,7 @@ export default function ProgressList({
                               )
                             : celdasP.push(
                                 <div
-                                  key={i}
+                                  key={`${i}-celdasPe`}
                                   className={`celda ${
                                     (subP.diasChecklist.length > 0 &&
                                       new Date(
@@ -339,8 +339,8 @@ export default function ProgressList({
                           null;
                         } else {
                           return (
-                            <div className="prog-table-item d-flex align-items-center">
-                              <div className="tabla-dias d-flex">{celdasP}</div>
+                            <div key={`${subP.nombreSubp}-progTable`} className="prog-table-item d-flex align-items-center">
+                              <div key={`${subP.nombreSubp}-tablaDias`} className="tabla-dias d-flex">{celdasP}</div>
                             </div>
                           );
                         }
@@ -378,7 +378,7 @@ export default function ProgressList({
                           ).length > 0
                             ? celdasP.push(
                                 <div
-                                  key={i}
+                                  key={`${i}-celdasPa`}
                                   className={`celda ${
                                     diasArray.filter(
                                       (dia) =>
@@ -415,7 +415,7 @@ export default function ProgressList({
                               )
                             : celdasP.push(
                                 <div
-                                  key={i}
+                                  key={`${i}-celdasPb`}
                                   className={`celda ${
                                     (totalDiasProj.length > 0 &&
                                       new Date(
@@ -442,7 +442,7 @@ export default function ProgressList({
                               );
                         }
                         return (
-                          <div className="tabla-dias d-flex">{celdasP}</div>
+                          <div  className="tabla-dias d-flex">{celdasP}</div>
                         );
                       })}
                   {project && showMain == "true" ? (
