@@ -1,42 +1,42 @@
-import { TabsWrapper, TabsComposition } from '../../@types/tabComponent'
-import TabsProvider, { useTabsContext } from '../../context/TabsContext'
+import { TabsWrapper, TabsComposition } from "../../@types/tabComponent";
+import TabsProvider, { useTabsContext } from "../../context/TabsContext";
 import "./TabsComponent.scss";
 
 const Tabs: TabsWrapper & TabsComposition = ({ children }) => {
-  return <TabsProvider>{children}</TabsProvider>
-}
+  return <TabsProvider>{children}</TabsProvider>;
+};
 
 Tabs.Titles = ({ items }) => {
-  const { currentIndex, setCurrentIndex } = useTabsContext()
+  const { currentIndex, setCurrentIndex } = useTabsContext();
   return (
-    <ul className='nav nav-tabs' role="tablist">
+    <ul className="nav nav-tabs" role="tablist">
       {items.map(({ id, title }, index) => (
-        <li className='nav-item'>
-        <button
-        className='nav-link'
-          key={id}
-          id={`tab-control-${id}`}
-          role="tab"
-          aria-controls={`tab-content-${id}`}
-          aria-selected={currentIndex === index}
-          onClick={() => {
-            setCurrentIndex(index)
-          }}
-        >
-          {title}
-        </button>
+        <li className="nav-item">
+          <button
+            className={`nav-link ${currentIndex === index ? 'active' : ''}`}
+            key={id}
+            id={`tab-control-${id}`}
+            role="tab"
+            aria-controls={`tab-content-${id}`}
+            aria-selected={currentIndex === index}
+            onClick={() => {
+              setCurrentIndex(index);
+            }}
+          >
+            {title}
+          </button>
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};
 
 Tabs.Contents = ({ items }) => {
-  const { currentIndex } = useTabsContext()
-  const { id, content } = items[currentIndex]
+  const { currentIndex } = useTabsContext();
+  const { id, content } = items[currentIndex];
   return (
     <div
-      className={'tab-content'}
+      className={"tab-content"}
       key={id}
       id={`tab-content-${id}`}
       role="tabpanel"
@@ -44,7 +44,7 @@ Tabs.Contents = ({ items }) => {
     >
       {content}
     </div>
-  )
-}
+  );
+};
 
-export default Tabs
+export default Tabs;

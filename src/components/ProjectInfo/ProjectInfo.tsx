@@ -59,11 +59,11 @@ export default function ProjectInfo({ project }: { project: IProject }) {
         <div className="content d-flex">
           <div className="section-1 bold">
             <div className="subsect">
-              <div>
+              <div id="fechaCreacion">
                 {lang === "es" ? "Fecha de creación: " : "Creation date: "}
                 {stats?.creacion}
               </div>
-              <div>
+              <div id="tipo">
                 {lang === "es" ? "Tipo:" : "Type:"} {lang === "en" ? project?.tipo == "Crecimiento" ? "Personal growth" : project?.tipo == "Salud" ? "Health" : "Recreation" : project?.tipo}
               </div>
             </div>
@@ -71,11 +71,11 @@ export default function ProjectInfo({ project }: { project: IProject }) {
               <div className="subtitulo">
                 {lang === "es" ? "Subproyectos" : "Subprojects"}
               </div>
-              <div>Total: {stats?.cantSubproyectos}</div>
-              <div>
+              <div id="totalSubproyectos">Total: {stats?.cantSubproyectos}</div>
+              <div id="subproyectosActivos">
                 {lang === "es" ? "Activos:" : "Active:"} {stats?.cantActivos}
               </div>
-              <div>
+              <div id="subproyectosCerrados">
                 {lang === "es" ? "Cerrados:" : "Closed:"} {stats?.cantCerradas}
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function ProjectInfo({ project }: { project: IProject }) {
               <div className="subtitulo">
                 {lang === "es" ? "Logros" : "Achievements"}
               </div>
-              <div>{lang === "es" ? "Cantidad:" : "Amount:"} {stats?.logros}</div>
+              <div id="totalLogros">{lang === "es" ? "Cantidad:" : "Amount:"} {stats?.logros}</div>
             </div>
           </div>
           <div className="section-2 bold">
@@ -92,21 +92,21 @@ export default function ProjectInfo({ project }: { project: IProject }) {
             </div>
             <div className="subsect">
               <div className="subtitulo">{lang === "es" ? "Días dedicados" : "Dedicated days"}</div>
-              <div className="total">Total: {stats?.cantDiasCheckeados}</div>
+              <div id="totalDias" className="total">Total: {stats?.cantDiasCheckeados}</div>
               <div className="row rg-10">
-                <div className="d-flex col-6 align-items-center g-15">
+                <div id="cantDiasStatus0" className="d-flex col-6 align-items-center g-15">
                   <div className="celda check-1"></div>
                   {stats?.cantDiasStatus0}
                 </div>
-                <div className="d-flex col-6 align-items-center g-15">
+                <div id="cantDiasStatus1" className="d-flex col-6 align-items-center g-15">
                   <div className="celda check-2"></div>
                   {stats?.cantDiasStatus1}
                 </div>
-                <div className="d-flex col-6 align-items-center g-15">
+                <div id="cantDiasStatus2" className="d-flex col-6 align-items-center g-15">
                   <div className="celda check-3"></div>
                   {stats?.cantDiasStatus2}
                 </div>
-                <div className="d-flex col-6 align-items-center g-15">
+                <div id="cantDiasStatus3" className="d-flex col-6 align-items-center g-15">
                   <div className="celda check-4"></div>
                   {stats?.cantDiasStatus3}
                 </div>

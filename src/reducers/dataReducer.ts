@@ -6,6 +6,27 @@ export const dataReducer = (
   action: DataAction
 ): IProject[] => {
   switch (action.type) {
+    case "INIT_DATA":
+      return action.payload.data;
+    case "ORDENAR_DATA":
+      return state
+        .sort(function (a, b) {
+          if (a.fechaCreacion == b.fechaCreacion) {
+            return a.nombre < b.nombre ? -1 : a.nombre > b.nombre ? 1 : 0;
+          } else {
+            return (
+              new Date(b.fechaCreacion).getTime() -
+              new Date(a.fechaCreacion).getTime()
+            );
+          }
+        })
+        .sort(function (a) {
+          return a.archivado ? 1 : -1;
+        })
+        .sort(function (a) {
+          return a.favorito ? -1 : 1;
+        })
+        .map((proyecto) => proyecto);
     case "CREAR_PROYECTO":
       const newProject = (nombre: string, tipo: string, diaActual: string) => {
         const newProj: IProject = {

@@ -11,6 +11,10 @@ export function dateToStringFormat(date: Date) {
 export function dayStringFormat(date: string, lang: string) {
   let dia = new Date(date);
   return (
+    dia.toLocaleDateString(lang, {
+      weekday: "long",
+    }).split('')[0].toUpperCase() +
+    " " +
     dia.getDate() +
     " " +
     capFirstLetter(dia.toLocaleString(`${lang}-US`, { month: "short" })) +

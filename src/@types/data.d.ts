@@ -23,7 +23,7 @@ export interface IProject {
 
 export type DataAction =
 | { type: "INIT_DATA"; payload: {data: IProject[]}}
-| { type: "ACTUALIZAR_DATA"; }
+| { type: "ORDENAR_DATA"; }
 | { type: "CREAR_PROYECTO"; payload: {nombre: string, tipo: string, diaActual: string} }
 | { type: "ELIMINAR_PROYECTO"; payload: {id: string} }
 | { type: "AGREGAR_LOGRO"; payload: {id: string, nombreLogro: string, imgLogro: string} }

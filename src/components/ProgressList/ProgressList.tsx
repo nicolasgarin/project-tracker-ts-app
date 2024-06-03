@@ -180,14 +180,14 @@ export default function ProgressList({
         (!project &&
           fullProjects.filter((p) => !p.archivado).length == 0 &&
           showArchiv == "false") ? (
-          <div className="d-flex align-items-center justify-content-between">
+          <div className={`d-flex align-items-center justify-content-between ${!project? 'mt-3' : ""}`}>
             <h3 className="titulo">
               {lang == "es" ? "Progresión" : "Progress"}
             </h3>
             <FilterOptions project={project ? true : false} />
           </div>
         ) : (
-          <div className="progress-list card-container">
+          <div className={`progress-list card-container ${!project? 'mt-3' : ""} `}>
             <h3 className="titulo">
               {lang == "es" ? "Progresión" : "Progress"}
             </h3>
@@ -196,16 +196,16 @@ export default function ProgressList({
                 availableYears={availableYears}
                 btnDisabled={
                   project && listaTotalDiasSubp.length > 0
-                    ? listaTotalDiasSubp[0].date.split("-")[0] ==
+                    ? listaTotalDiasSubp.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[0] ==
                         selectedYear.toString() &&
-                      listaTotalDiasSubp[0].date.split("-")[1] ==
+                      listaTotalDiasSubp.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[1] ==
                         selectedMonth.toString()
                     : project && listaTotalDiasSubp.length == 0
                     ? true
                     : !project && listaTotalDiasProj.length > 0
-                    ? listaTotalDiasProj[0].date.split("-")[0] ==
+                    ? listaTotalDiasProj.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[0] ==
                         selectedYear.toString() &&
-                      listaTotalDiasProj[0].date.split("-")[1] ==
+                      listaTotalDiasProj.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[1] ==
                         selectedMonth.toString()
                     : !project && listaTotalDiasProj.length == 0
                     ? true
