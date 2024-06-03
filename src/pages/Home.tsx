@@ -35,7 +35,7 @@ export default function Home() {
             img="telescopio"
           />
         )}
-        <ProgressList fullProjects={data} />
+        {data.length > 0 && <ProgressList fullProjects={data} />}
       </MainContainer>
     </ThemedContainer>
   );

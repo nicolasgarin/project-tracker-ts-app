@@ -21,12 +21,10 @@ footer.dark {
 .instructions.dark,
 .project.dark {
   background-image: url("/background-dark.png");
-
   ::-webkit-scrollbar-thumb {
     background: $celeste-3;
     border-radius: 10px;
   }
-
   .titulo {
     color: $celeste;
   }
@@ -54,11 +52,9 @@ footer.dark {
   .seccion {
     color: $celeste;
   }
-
   .form-nueva-subcat {
     color: $celeste;
   }
-
   .celda {
     border-color: $violeta-2;
     &.celda-disabled-2 {
@@ -66,9 +62,13 @@ footer.dark {
       border-color: $violeta-2;
     }
   }
-
   .day-setter {
     .day-name {
+      color: $celeste !important;
+    }
+  }
+  #month-setter {
+    .month-name {
       color: $celeste !important;
     }
   }

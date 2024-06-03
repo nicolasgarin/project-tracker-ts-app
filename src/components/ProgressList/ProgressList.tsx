@@ -106,6 +106,63 @@ export default function ProgressList({
         });
       });
 
+  let celdasListaTotalDiasSubp = [];
+  for (let i = 1; i <= cantDiasSelectedMonth; i++) {
+    totalDiasSubp.filter((dia) => dia.date.split("-")[2] == i.toString())
+      .length > 0
+      ? celdasListaTotalDiasSubp.push(
+          <div
+            key={i}
+            className={`celda ${
+              totalDiasSubp.filter(
+                (dia) =>
+                  dia.date.split("-")[2] == i.toString() && dia.status == 0
+              ).length > 0 &&
+              totalDiasSubp.filter(
+                (dia) =>
+                  dia.date.split("-")[2] == i.toString() &&
+                  (dia.status == 1 || dia.status == 2)
+              ).length == 0
+                ? "check-1 animation-1"
+                : totalDiasSubp.filter(
+                    (dia) =>
+                      dia.date.split("-")[2] == i.toString() && dia.status == 1
+                  ).length > 0 &&
+                  totalDiasSubp.filter(
+                    (dia) =>
+                      dia.date.split("-")[2] == i.toString() && dia.status == 2
+                  ).length == 0
+                ? "check-2 animation-2"
+                : totalDiasSubp.filter(
+                    (dia) =>
+                      dia.date.split("-")[2] == i.toString() && dia.status == 2
+                  ).length > 0
+                ? "check-3 animation"
+                : "check-4 animation-2"
+            }`}
+          ></div>
+        )
+      : celdasListaTotalDiasSubp.push(
+          <div
+            key={i}
+            className={`celda ${
+              (listaTotalDiasSubp.length > 0 &&
+                new Date(
+                  listaTotalDiasSubp[listaTotalDiasSubp.length - 1].date
+                ) < new Date(`${selectedYear}-${selectedMonth}-${i}`) &&
+                project?.archivado) ||
+              (listaTotalDiasSubp.length > 0 &&
+                new Date(listaTotalDiasSubp[0].date) >
+                  new Date(`${selectedYear}-${selectedMonth}-${i}`)) ||
+              new Date(`${selectedYear}-${selectedMonth}-${i}`) >
+                new Date(actualDate)
+                ? "celda-disabled-2"
+                : ""
+            }`}
+          ></div>
+        );
+  }
+
   function filterFullTable(data: IProject[]) {
     showArchiv == "false"
       ? setFilteredData(data.filter((d) => d.archivado == false))
@@ -145,8 +202,7 @@ export default function ProgressList({
                         selectedMonth.toString()
                     : project && listaTotalDiasSubp.length == 0
                     ? true
-                    :
-                    !project && listaTotalDiasProj.length > 0
+                    : !project && listaTotalDiasProj.length > 0
                     ? listaTotalDiasProj[0].date.split("-")[0] ==
                         selectedYear.toString() &&
                       listaTotalDiasProj[0].date.split("-")[1] ==
@@ -191,7 +247,9 @@ export default function ProgressList({
                       })}
                   {project ? (
                     showMain == "true" ? (
-                      <div className="nombre-fila bold">{project.nombre}</div>
+                      <div className="nombre-fila bold mt-3">
+                        {project.nombre}
+                      </div>
                     ) : null
                   ) : null}
                 </div>
@@ -388,8 +446,10 @@ export default function ProgressList({
                         );
                       })}
                   {project && showMain == "true" ? (
-                    <div className="prog-table-item d-flex align-items-center">
-                      <div className="tabla-dias d-flex">{<div>hola</div>}</div>
+                    <div className="prog-table-item d-flex align-items-center mt-3">
+                      <div className="tabla-dias d-flex">
+                        {celdasListaTotalDiasSubp}
+                      </div>
                     </div>
                   ) : null}
                 </div>
