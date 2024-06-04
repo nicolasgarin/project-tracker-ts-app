@@ -442,7 +442,7 @@ export default function ProgressList({
                               );
                         }
                         return (
-                          <div  className="tabla-dias d-flex">{celdasP}</div>
+                          <div key={proyecto.id} className="tabla-dias d-flex">{celdasP}</div>
                         );
                       })}
                   {project && showMain == "true" ? (
