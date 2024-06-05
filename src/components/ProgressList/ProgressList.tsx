@@ -412,30 +412,30 @@ export default function ProgressList({
                                     <div
                                       key={`${i}-celdasListaTotalDiasSubp`}
                                       className={`celda ${
-                                    diasArray.filter(
+                                        totalDiasSubp.filter(
                                       (dia) =>
                                         dia.date.split("-")[2] ==
                                           i.toString() && dia.status == 0
                                     ).length > 0 &&
-                                    diasArray.filter(
+                                    totalDiasSubp.filter(
                                       (dia) =>
                                         dia.date.split("-")[2] ==
                                           i.toString() &&
                                         (dia.status == 1 || dia.status == 2)
                                     ).length == 0
                                       ? "check-1 animation-1"
-                                      : diasArray.filter(
+                                      : totalDiasSubp.filter(
                                           (dia) =>
                                             dia.date.split("-")[2] ==
                                               i.toString() && dia.status == 1
                                         ).length > 0 &&
-                                        diasArray.filter(
+                                        totalDiasSubp.filter(
                                           (dia) =>
                                             dia.date.split("-")[2] ==
                                               i.toString() && dia.status == 2
                                         ).length == 0
                                       ? "check-2 animation-2"
-                                      : diasArray.filter(
+                                      : totalDiasSubp.filter(
                                           (dia) =>
                                             dia.date.split("-")[2] ==
                                               i.toString() && dia.status == 2
