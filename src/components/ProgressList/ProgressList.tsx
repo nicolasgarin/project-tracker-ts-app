@@ -106,62 +106,7 @@ export default function ProgressList({
         });
       });
 
-  let celdasListaTotalDiasSubp = [];
-  for (let i = 1; i <= cantDiasSelectedMonth; i++) {
-    totalDiasSubp.filter((dia) => dia.date.split("-")[2] == i.toString())
-      .length > 0
-      ? celdasListaTotalDiasSubp.push(
-          <div
-            key={`${i}-celdasListaTotalDiasSubp`}
-            className={`celda ${
-              totalDiasSubp.filter(
-                (dia) =>
-                  dia.date.split("-")[2] == i.toString() && dia.status == 0
-              ).length > 0 &&
-              totalDiasSubp.filter(
-                (dia) =>
-                  dia.date.split("-")[2] == i.toString() &&
-                  (dia.status == 1 || dia.status == 2)
-              ).length == 0
-                ? "check-1 animation-1"
-                : totalDiasSubp.filter(
-                    (dia) =>
-                      dia.date.split("-")[2] == i.toString() && dia.status == 1
-                  ).length > 0 &&
-                  totalDiasSubp.filter(
-                    (dia) =>
-                      dia.date.split("-")[2] == i.toString() && dia.status == 2
-                  ).length == 0
-                ? "check-2 animation-2"
-                : totalDiasSubp.filter(
-                    (dia) =>
-                      dia.date.split("-")[2] == i.toString() && dia.status == 2
-                  ).length > 0
-                ? "check-3 animation"
-                : "check-4 animation-2"
-            }`}
-          ></div>
-        )
-      : celdasListaTotalDiasSubp.push(
-          <div
-            key={`${i}-celdasListaTotalDiasSubp`}
-            className={`celda ${
-              (listaTotalDiasSubp.length > 0 &&
-                new Date(
-                  listaTotalDiasSubp[listaTotalDiasSubp.length - 1].date
-                ) < new Date(`${selectedYear}-${selectedMonth}-${i}`) &&
-                project?.archivado) ||
-              (listaTotalDiasSubp.length > 0 &&
-                new Date(listaTotalDiasSubp[0].date) >
-                  new Date(`${selectedYear}-${selectedMonth}-${i}`)) ||
-              new Date(`${selectedYear}-${selectedMonth}-${i}`) >
-                new Date(actualDate)
-                ? "celda-disabled-2"
-                : ""
-            }`}
-          ></div>
-        );
-  }
+
 
   function filterFullTable(data: IProject[]) {
     showArchiv == "false"
@@ -448,7 +393,77 @@ export default function ProgressList({
                   {project && showMain == "true" ? (
                     <div className="prog-table-item d-flex align-items-center mt-3">
                       <div className="tabla-dias d-flex">
-                        {celdasListaTotalDiasSubp}
+                        {
+                          project.subproyectos.map((subP) => {
+                            totalDiasSubp = [];
+                            listaTotalDiasSubp = [];
+                            subP.diasChecklist.map((dia) => {
+                              listaTotalDiasSubp.push(dia);
+                              if (dia.date.split("-")[0] == selectedYear.toString()) {
+                                if (dia.date.split("-")[1] == selectedMonth.toString()) {
+                                  totalDiasSubp.push(dia);
+                                }
+                              }
+                            });
+                            let celdasListaTotalDiasSubp = [];
+                            for (let i = 1; i <= cantDiasSelectedMonth; i++) {
+                              totalDiasSubp.filter((dia) => dia.date.split("-")[2] == i.toString())
+                                .length > 0
+                                ? celdasListaTotalDiasSubp.push(
+                                    <div
+                                      key={`${i}-celdasListaTotalDiasSubp`}
+                                      className={`celda ${
+                                        totalDiasSubp.filter(
+                                          (dia) =>
+                                            dia.date.split("-")[2] == i.toString() && dia.status == 0
+                                        ).length > 0 &&
+                                        totalDiasSubp.filter(
+                                          (dia) =>
+                                            dia.date.split("-")[2] == i.toString() &&
+                                            (dia.status == 1 || dia.status == 2)
+                                        ).length == 0
+                                          ? "check-1 animation-1"
+                                          : totalDiasSubp.filter(
+                                              (dia) =>
+                                                dia.date.split("-")[2] == i.toString() && dia.status == 1
+                                            ).length > 0 &&
+                                            totalDiasSubp.filter(
+                                              (dia) =>
+                                                dia.date.split("-")[2] == i.toString() && dia.status == 2
+                                            ).length == 0
+                                          ? "check-2 animation-2"
+                                          : totalDiasSubp.filter(
+                                              (dia) =>
+                                                dia.date.split("-")[2] == i.toString() && dia.status == 2
+                                            ).length > 0
+                                          ? "check-3 animation"
+                                          : "check-4 animation-2"
+                                      }`}
+                                    ></div>
+                                  )
+                                : celdasListaTotalDiasSubp.push(
+                                    <div
+                                      key={`${i}-celdasListaTotalDiasSubp`}
+                                      className={`celda ${
+                                        (listaTotalDiasSubp.length > 0 &&
+                                          new Date(
+                                            listaTotalDiasSubp[listaTotalDiasSubp.length - 1].date
+                                          ) < new Date(`${selectedYear}-${selectedMonth}-${i}`) &&
+                                          project?.archivado) ||
+                                        (listaTotalDiasSubp.length > 0 &&
+                                          new Date(listaTotalDiasSubp[0].date) >
+                                            new Date(`${selectedYear}-${selectedMonth}-${i}`)) ||
+                                        new Date(`${selectedYear}-${selectedMonth}-${i}`) >
+                                          new Date(actualDate)
+                                          ? "celda-disabled-2"
+                                          : ""
+                                      }`}
+                                    ></div>
+                                  );
+                            }
+                            return (<>{celdasListaTotalDiasSubp}</>)
+                          })
+                        }
                       </div>
                     </div>
                   ) : null}
