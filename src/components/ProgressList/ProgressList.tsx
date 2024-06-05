@@ -392,7 +392,6 @@ export default function ProgressList({
                       })}
                   {project && showMain == "true" ? (
                     <div className="prog-table-item d-flex align-items-center mt-3">
-                      <div className="tabla-dias d-flex">
                         {
                           project.subproyectos.map((subP) => {
                             totalDiasSubp = [];
@@ -461,10 +460,9 @@ export default function ProgressList({
                                     ></div>
                                   );
                             }
-                            return (<>{celdasListaTotalDiasSubp}</>)
+                            return (<div className="tabla-dias d-flex">{celdasListaTotalDiasSubp}</div>)
                           })
-                        }
-                      </div>
+                        }  
                     </div>
                   ) : null}
                 </div>
