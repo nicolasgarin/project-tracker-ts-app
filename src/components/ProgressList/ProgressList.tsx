@@ -40,7 +40,7 @@ export default function ProgressList({
   var celdasMes = [];
   var celdasMesLetras = [];
   var totalDiasSubp: IDia[] = [];
-//  var listaTotalDiasSubp: IDia[] = [];
+  var listaTotalDiasSubp: IDia[] = [];
   var listaTotalDiasProj: IDia[] = [];
 
   useEffect(() => {
@@ -48,8 +48,7 @@ export default function ProgressList({
       ? (filterFullTable(fullProjects),
         localStorage.setItem("showArchiv", showArchiv))
       : setFilteredProject(project),
-        filterFullTable([project])
-      ;
+      filterFullTable(project ? [project] : fullProjects);
   }, [fullProjects, showArchiv]);
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function ProgressList({
 
   useEffect(() => {
     listaTotalDiasSubp = [];
-    listaTotalDiasProj = [];;
+    listaTotalDiasProj = [];
   }, [selectedMonth, selectedYear]);
 
   for (let i = 1; i <= cantDiasSelectedMonth; i++) {
@@ -113,8 +112,6 @@ export default function ProgressList({
         });
       });
 
-
-
   function filterFullTable(data: IProject[]) {
     showArchiv == "false"
       ? setFilteredData(data.filter((d) => d.archivado == false))
@@ -132,14 +129,22 @@ export default function ProgressList({
         (!project &&
           fullProjects.filter((p) => !p.archivado).length == 0 &&
           showArchiv == "false") ? (
-          <div className={`d-flex align-items-center justify-content-between ${!project? 'mt-3' : ""}`}>
+          <div
+            className={`d-flex align-items-center justify-content-between ${
+              !project ? "mt-3" : ""
+            }`}
+          >
             <h3 className="titulo">
               {lang == "es" ? "Progresión" : "Progress"}
             </h3>
             <FilterOptions project={project ? true : false} />
           </div>
         ) : (
-          <div className={`progress-list card-container ${!project? 'mt-3' : ""} `}>
+          <div
+            className={`progress-list card-container ${
+              !project ? "mt-3" : ""
+            } `}
+          >
             <h3 className="titulo">
               {lang == "es" ? "Progresión" : "Progress"}
             </h3>
@@ -148,17 +153,21 @@ export default function ProgressList({
                 availableYears={availableYears}
                 btnDisabled={
                   project && listaTotalDiasSubp.length > 0
-                    ? listaTotalDiasSubp.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[0] ==
-                        selectedYear.toString() &&
-                      listaTotalDiasSubp.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[1] ==
-                        selectedMonth.toString()
+                    ? listaTotalDiasSubp
+                        .sort((a, b) => a.date.localeCompare(b.date))[0]
+                        .date.split("-")[0] == selectedYear.toString() &&
+                      listaTotalDiasSubp
+                        .sort((a, b) => a.date.localeCompare(b.date))[0]
+                        .date.split("-")[1] == selectedMonth.toString()
                     : project && listaTotalDiasSubp.length == 0
                     ? true
                     : !project && listaTotalDiasProj.length > 0
-                    ? listaTotalDiasProj.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[0] ==
-                        selectedYear.toString() &&
-                      listaTotalDiasProj.sort((a,b)=> a.date.localeCompare(b.date))[0].date.split("-")[1] ==
-                        selectedMonth.toString()
+                    ? listaTotalDiasProj
+                        .sort((a, b) => a.date.localeCompare(b.date))[0]
+                        .date.split("-")[0] == selectedYear.toString() &&
+                      listaTotalDiasProj
+                        .sort((a, b) => a.date.localeCompare(b.date))[0]
+                        .date.split("-")[1] == selectedMonth.toString()
                     : !project && listaTotalDiasProj.length == 0
                     ? true
                     : false
@@ -175,7 +184,10 @@ export default function ProgressList({
                           null;
                         } else {
                           return (
-                            <div key={`${subcat.nombreSubp}`} className="nombre-fila bold">
+                            <div
+                              key={`${subcat.nombreSubp}`}
+                              className="nombre-fila bold"
+                            >
                               {subcat.nombreSubp}
                             </div>
                           );
@@ -291,8 +303,16 @@ export default function ProgressList({
                           null;
                         } else {
                           return (
-                            <div key={`${subP.nombreSubp}-progTable`} className="prog-table-item d-flex align-items-center">
-                              <div key={`${subP.nombreSubp}-tablaDias`} className="tabla-dias d-flex">{celdasP}</div>
+                            <div
+                              key={`${subP.nombreSubp}-progTable`}
+                              className="prog-table-item d-flex align-items-center"
+                            >
+                              <div
+                                key={`${subP.nombreSubp}-tablaDias`}
+                                className="tabla-dias d-flex"
+                              >
+                                {celdasP}
+                              </div>
                             </div>
                           );
                         }
@@ -394,58 +414,72 @@ export default function ProgressList({
                               );
                         }
                         return (
-                          <div key={proyecto.id} className="tabla-dias d-flex">{celdasP}</div>
+                          <div key={proyecto.id} className="tabla-dias d-flex">
+                            {celdasP}
+                          </div>
                         );
                       })}
                   {project && showMain == "true" ? (
                     <div className="prog-table-item d-flex align-items-center mt-3">
-                        {
-                          filteredData.map((proyecto) => {
-                            let listaTotalDiasSubp = [];
-
-                          project.subproyectos.map((subP) => {
-                            subP.diasChecklist.map((dia) => {
-                              listaTotalDiasSubp.push(dia);
-                              if (dia.date.split("-")[0] == selectedYear.toString()) {
-                                if (dia.date.split("-")[1] == selectedMonth.toString()) {
-                                  totalDiasSubp.push(dia);
-                                }
+                      {filteredData.map((proyecto) => {
+                        let diasArray: IDia[] = [];
+                        let totalDiasProj: IDia[] = [];
+                        proyecto.subproyectos.map((subP) => {
+                          subP.diasChecklist.map((dia) => {
+                            totalDiasProj.push(dia);
+                            if (
+                              dia.date.split("-")[0] == selectedYear.toString()
+                            ) {
+                              if (
+                                dia.date.split("-")[1] ==
+                                selectedMonth.toString()
+                              ) {
+                                diasArray.push(dia);
                               }
-                            });
                             }
-                            console.log(totalDiasSubp)
-                            let celdasListaTotalDiasSubp = [];
-                            for (let i = 1; i <= cantDiasSelectedMonth; i++) {
-                              totalDiasSubp.filter((dia) => dia.date.split("-")[2] == i.toString())
-                                .length > 0
-                                ? celdasListaTotalDiasSubp.push(
-                                    <div
-                                      key={`${i}-celdasListaTotalDiasSubp`}
-                                      className={`celda ${
-                                        totalDiasSubp.filter(
+                          });
+                        });
+                        totalDiasProj.sort(function (a, b) {
+                          return new Date(a.date) > new Date(b.date)
+                            ? 1
+                            : new Date(a.date) < new Date(b.date)
+                            ? -1
+                            : 0;
+                        });
+
+                        let celdasP = [];
+                        for (let i = 1; i <= cantDiasSelectedMonth; i++) {
+                          diasArray.filter(
+                            (dia) => dia.date.split("-")[2] == i.toString()
+                          ).length > 0
+                            ? celdasP.push(
+                                <div
+                                  key={`${i}-celdasPa`}
+                                  className={`celda ${
+                                    diasArray.filter(
                                       (dia) =>
                                         dia.date.split("-")[2] ==
                                           i.toString() && dia.status == 0
                                     ).length > 0 &&
-                                    totalDiasSubp.filter(
+                                    diasArray.filter(
                                       (dia) =>
                                         dia.date.split("-")[2] ==
                                           i.toString() &&
                                         (dia.status == 1 || dia.status == 2)
                                     ).length == 0
                                       ? "check-1 animation-1"
-                                      : totalDiasSubp.filter(
+                                      : diasArray.filter(
                                           (dia) =>
                                             dia.date.split("-")[2] ==
                                               i.toString() && dia.status == 1
                                         ).length > 0 &&
-                                        totalDiasSubp.filter(
+                                        diasArray.filter(
                                           (dia) =>
                                             dia.date.split("-")[2] ==
                                               i.toString() && dia.status == 2
                                         ).length == 0
                                       ? "check-2 animation-2"
-                                      : totalDiasSubp.filter(
+                                      : diasArray.filter(
                                           (dia) =>
                                             dia.date.split("-")[2] ==
                                               i.toString() && dia.status == 2
@@ -453,32 +487,42 @@ export default function ProgressList({
                                       ? "check-3 animation"
                                       : "check-4 animation-2"
                                   }`}
-                                    ></div>
-                                  )
-                                : celdasListaTotalDiasSubp.push(
-                                    <div
-                                      key={`${i}-celdasListaTotalDiasSubp`}
-                                      className={`celda ${
-                                        (listaTotalDiasSubp.length > 0 &&
-                                          new Date(
-                                            listaTotalDiasSubp[listaTotalDiasSubp.length - 1].date
-                                          ) < new Date(`${selectedYear}-${selectedMonth}-${i}`) &&
-                                          project?.archivado) ||
-                                        (listaTotalDiasSubp.length > 0 &&
-                                          new Date(listaTotalDiasSubp[0].date) >
-                                            new Date(`${selectedYear}-${selectedMonth}-${i}`)) ||
-                                        new Date(`${selectedYear}-${selectedMonth}-${i}`) >
-                                          new Date(actualDate)
-                                          ? "celda-disabled-2"
-                                          : ""
-                                      }`}
-                                    ></div>
-                                  );
-                            }
-                            return (<div className="tabla-dias d-flex">{celdasListaTotalDiasSubp}</div>)
-                          })
-                        } 
-                      
+                                ></div>
+                              )
+                            : celdasP.push(
+                                <div
+                                  key={`${i}-celdasPb`}
+                                  className={`celda ${
+                                    (totalDiasProj.length > 0 &&
+                                      new Date(
+                                        totalDiasProj[
+                                          totalDiasProj.length - 1
+                                        ].date
+                                      ) <
+                                        new Date(
+                                          `${selectedYear}-${selectedMonth}-${i}`
+                                        ) &&
+                                      proyecto.archivado) ||
+                                    (totalDiasProj.length > 0 &&
+                                      new Date(totalDiasProj[0].date) >
+                                        new Date(
+                                          `${selectedYear}-${selectedMonth}-${i}`
+                                        )) ||
+                                    new Date(
+                                      `${selectedYear}-${selectedMonth}-${i}`
+                                    ) > new Date(actualDate)
+                                      ? "celda-disabled-2"
+                                      : ""
+                                  }`}
+                                ></div>
+                              );
+                        }
+                        return (
+                          <div key={proyecto.id} className="tabla-dias d-flex">
+                            {celdasP}
+                          </div>
+                        );
+                      })}
                     </div>
                   ) : null}
                 </div>
