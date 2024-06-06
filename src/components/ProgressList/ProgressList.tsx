@@ -404,6 +404,7 @@ export default function ProgressList({
                                 }
                               }
                             });
+                            console.log(totalDiasSubp)
                             let celdasListaTotalDiasSubp = [];
                             for (let i = 1; i <= cantDiasSelectedMonth; i++) {
                               totalDiasSubp.filter((dia) => dia.date.split("-")[2] == i.toString())
