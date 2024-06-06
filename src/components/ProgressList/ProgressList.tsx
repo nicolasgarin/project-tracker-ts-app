@@ -40,14 +40,16 @@ export default function ProgressList({
   var celdasMes = [];
   var celdasMesLetras = [];
   var totalDiasSubp: IDia[] = [];
-  var listaTotalDiasSubp: IDia[] = [];
+//  var listaTotalDiasSubp: IDia[] = [];
   var listaTotalDiasProj: IDia[] = [];
 
   useEffect(() => {
     !project
       ? (filterFullTable(fullProjects),
         localStorage.setItem("showArchiv", showArchiv))
-      : setFilteredProject(project);
+      : setFilteredProject(project),
+        filterFullTable([project])
+      ;
   }, [fullProjects, showArchiv]);
 
   useEffect(() => {
@@ -398,6 +400,9 @@ export default function ProgressList({
                   {project && showMain == "true" ? (
                     <div className="prog-table-item d-flex align-items-center mt-3">
                         {
+                          filteredData.map((proyecto) => {
+                            let listaTotalDiasSubp = [];
+
                           project.subproyectos.map((subP) => {
                             subP.diasChecklist.map((dia) => {
                               listaTotalDiasSubp.push(dia);
@@ -407,6 +412,7 @@ export default function ProgressList({
                                 }
                               }
                             });
+                            }
                             console.log(totalDiasSubp)
                             let celdasListaTotalDiasSubp = [];
                             for (let i = 1; i <= cantDiasSelectedMonth; i++) {
@@ -471,7 +477,8 @@ export default function ProgressList({
                             }
                             return (<div className="tabla-dias d-flex">{celdasListaTotalDiasSubp}</div>)
                           })
-                        }  
+                        } 
+                      
                     </div>
                   ) : null}
                 </div>
