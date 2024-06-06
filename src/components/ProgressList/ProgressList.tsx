@@ -55,6 +55,11 @@ export default function ProgressList({
     setSelectedMonth(getMonthFromString(actualDate));
   }, []);
 
+  useEffect(() => {
+    listaTotalDiasSubp = [];
+    listaTotalDiasProj = [];;
+  }, [selectedMonth, selectedYear]);
+
   for (let i = 1; i <= cantDiasSelectedMonth; i++) {
     let letter = new Date(selectedYear, selectedMonth - 1, i)
       .toLocaleDateString(lang, {
@@ -394,8 +399,6 @@ export default function ProgressList({
                     <div className="prog-table-item d-flex align-items-center mt-3">
                         {
                           project.subproyectos.map((subP) => {
-                            totalDiasSubp = [];
-                            listaTotalDiasSubp = [];
                             subP.diasChecklist.map((dia) => {
                               listaTotalDiasSubp.push(dia);
                               if (dia.date.split("-")[0] == selectedYear.toString()) {
