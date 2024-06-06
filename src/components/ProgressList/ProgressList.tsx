@@ -394,8 +394,8 @@ export default function ProgressList({
                     <div className="prog-table-item d-flex align-items-center mt-3">
                         {
                           project.subproyectos.map((subP) => {
-                            //totalDiasSubp = [];
-                            //listaTotalDiasSubp = [];
+                            totalDiasSubp = [];
+                            listaTotalDiasSubp = [];
                             subP.diasChecklist.map((dia) => {
                               listaTotalDiasSubp.push(dia);
                               if (dia.date.split("-")[0] == selectedYear.toString()) {
