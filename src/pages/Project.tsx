@@ -99,7 +99,7 @@ export default function Project() {
               <Tabs.Contents
                 items={tabData.map(({ id, content }) => ({
                   id,
-                  content: <p>{content}</p>,
+                  content: <div>{content}</div>,
                 }))}
               />
             </Tabs>
