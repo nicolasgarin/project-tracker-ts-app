@@ -32,6 +32,7 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
             className="d-flex align-items-center justify-content-center celda celda-md"
             onClick={toggleShowArchiv}
             role="checkbox"
+            aria-checked={showArchiv == "true" ? true : false}
             aria-label={lang == "es" ? showArchiv == "false" ? "Mostrar proyectos archivados" : "Ocultar proyectos archivados" :  showArchiv == "false" ? "Show filed projects" : "Hide filed projects"}
             title={lang == "es" ? showArchiv == "false" ? "Mostrar proyectos archivados" : "Ocultar proyectos archivados" :  showArchiv == "false" ? "Show filed projects" : "Hide filed projects"}
             >
@@ -60,7 +61,8 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
               onClick={toggleShowMain}
               role="checkbox"
               aria-label={lang == "es" ? showMain == "false" ? "Mostrar proyecto principal" : "Ocultar proyecto principal" :  showMain == "false" ? "Show main project" : "Hide main project"}
-
+              aria-checked={showMain == "true" ? true : false}
+              title={lang == "es" ? showMain == "false" ? "Mostrar proyecto principal" : "Ocultar proyecto principal" :  showMain == "false" ? "Show main project" : "Hide main project"}
             >
               {showMain == "false" ? null : <FaCheck />}
             </div>
