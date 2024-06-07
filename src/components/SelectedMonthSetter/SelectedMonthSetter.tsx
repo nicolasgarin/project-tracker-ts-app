@@ -5,6 +5,7 @@ import { getMonthName } from "../../utils/dateFunctions";
 import { capFirstLetter } from "../../utils/reusableFunctions";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
+import "./SelectedMonthSetter.scss";
 
 interface MonthSetterProps {
   availableYears: string[];
