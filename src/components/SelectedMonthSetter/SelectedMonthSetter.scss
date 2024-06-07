@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+#month-setter {
+    .select-year {
+        border-radius: 6px;
+        height: 37.33px;
+        margin-right: 102px;
+    }
+    .month-setter {
+        width: 215px;
+        .month-name {
+            color: $violeta-3;
+        }
+    }
+    @media (max-width: $md) {
+        .select-year {
+            margin-right: 64px;
+            width: 97px !important;
+        }
+        .month-setter {
+            .month-name {
+                margin: 0 22px;
+            }
+        }
+    }
+}
