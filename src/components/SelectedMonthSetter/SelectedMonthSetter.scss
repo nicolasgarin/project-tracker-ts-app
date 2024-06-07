@@ -23,4 +23,12 @@
             }
         }
     }
+    @media (max-width: $sm) {
+        .select-year {
+            margin-right: 15px;
+        }
+        .month-setter {
+            
+        }
+    }
 }
