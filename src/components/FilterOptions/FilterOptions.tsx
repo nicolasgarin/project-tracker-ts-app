@@ -47,6 +47,7 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
               onClick={toggleShowFinished}
               role="checkbox"
               aria-label={lang == "es" ? showFinished == "false" ? "Mostrar subproyectos finalizados" : "Ocultar subproyectos finalizados" :  showFinished == "false" ? "Show finished subprojects" : "Hide finished subprojects"}
+              aria-checked={showFinished == "true" ? true : false}
               title={lang == "es" ? showFinished == "false" ? "Mostrar subproyectos finalizados" : "Ocultar subproyectos finalizados" :  showFinished == "false" ? "Show finished subprojects" : "Hide finished subprojects"}
             >
               {showFinished == "false" ? null : <FaCheck />}
