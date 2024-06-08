@@ -26,7 +26,7 @@ export default function NewProjectForm() {
   }
 
   return (
-    <form className="form-nuevo" onSubmit={handleSubmit} role="form" >
+    <form className="form-nuevo" onSubmit={handleSubmit} >
       <div className="container-lg d-flex flex-column flex-md-row align-items-end align-items-md-center justify-content-end">
         <div className="form-container d-flex align-items-center justify-content-center">
           <label className="form-label" htmlFor="projectName">
