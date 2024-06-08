@@ -33,7 +33,6 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
             onClick={toggleShowArchiv}
             role="checkbox"
             aria-checked={showArchiv == "true" ? true : false}
-            aria-label={lang == "es" ? showArchiv == "false" ? "Mostrar proyectos archivados" : "Ocultar proyectos archivados" :  showArchiv == "false" ? "Show filed projects" : "Hide filed projects"}
             title={lang == "es" ? showArchiv == "false" ? "Mostrar proyectos archivados" : "Ocultar proyectos archivados" :  showArchiv == "false" ? "Show filed projects" : "Hide filed projects"}
             >
             {showArchiv == "false" ? null : <FaCheck />}
@@ -47,7 +46,6 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
               className="d-flex align-items-center justify-content-center celda celda-md"
               onClick={toggleShowFinished}
               role="checkbox"
-              aria-label={lang == "es" ? showFinished == "false" ? "Mostrar subproyectos finalizados" : "Ocultar subproyectos finalizados" :  showFinished == "false" ? "Show finished subprojects" : "Hide finished subprojects"}
               aria-checked={showFinished == "true" ? true : false}
               title={lang == "es" ? showFinished == "false" ? "Mostrar subproyectos finalizados" : "Ocultar subproyectos finalizados" :  showFinished == "false" ? "Show finished subprojects" : "Hide finished subprojects"}
             >

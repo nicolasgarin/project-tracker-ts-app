@@ -116,7 +116,8 @@ export default function ProjectCard({ project }: { project: IProject }) {
             <div className="vertical-btn d-flex flex-column">
               {!project.archivado ? (
                 <div
-                  aria-label={
+                  role="button"
+                  title={
                     lang == "es" ? "Marcar como favorito" : "Mark as favorite"
                   }
                   onClick={() =>
@@ -136,7 +137,8 @@ export default function ProjectCard({ project }: { project: IProject }) {
                 </div>
               )}
               <div
-                aria-label={lang == "es" ? "Archivar proyecto" : "File project"}
+                role="button"
+                title={lang == "es" ? "Archivar proyecto" : "File project"}
                 onClick={() =>
                   dispatch({
                     type: "ARCHIVAR_PROYECTO",
