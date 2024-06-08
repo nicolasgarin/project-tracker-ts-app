@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <header className={`header ${theme}`}>
-      <div className="container-lg d-flex flex-column flex-sm-row align-items-center justify-content-between">
+      <div className="container-lg d-flex align-items-center justify-content-between">
         <div className="sec-1 d-flex align-items-center justify-content-center justify-content-sm-start">
           <Link
             to={"/project-tracker-ts-app/"}
