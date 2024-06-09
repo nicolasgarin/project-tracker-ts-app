@@ -84,13 +84,28 @@
     }
   }
   @media (max-width: $sm) {
-    border-bottom: 2px solid $celeste!important;
+    border-bottom: 2px solid $celeste !important;
     > .container-lg {
       padding: 0 !important;
     }
+    .options {
+      .qmark {
+        height: 34px;
+        width: 34px;
+      }
+      .logo-cont {
+        height: 36px;
+        width: 36px;
+        .lang-logo {
+          height: 34px;
+          width: 34px;
+        }
+      }
+    }
     .sec-1 {
       .logo {
-        height: 30px;
+        height: 34px;
+        width: 34px;
         margin-right: 30px;
       }
     }
@@ -106,16 +121,17 @@ footer {
   }
   .section-icons {
     .ficon {
-      height: 24px;
-      width: 24px;
+      height: 34px;
+      width: 34px;
       fill: $gris-claro;
       &:hover {
-        fill: $blanco;
+        fill: $blanco !important;
       }
     }
   }
   @media (max-width: $sm) {
-    padding: 20px 0;
+    border-top: 2px solid $celeste;
+    padding: 15px 0;
     > .container-lg {
       padding: 0 !important;
     }
@@ -129,7 +145,6 @@ footer {
     }
     .section-icons {
       width: 100%;
-      padding-top: 15px;
     }
   }
 }
@@ -146,22 +161,22 @@ footer {
 
 //SELECT
 select {
-    padding: 8px 15px;
-    background-image: url("/arrow-down.svg");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 20px;
-    background-origin: content-box;
-    border-radius: 8px;
-    appearance: none;
-    &.input-form {
-      width: 220px;
-    }
-    &.select-year {
-      width: 100px;
-    }
-    @media (max-width: $sm) {
-      padding: 8px 10px;
-      background-size: 15px;
-    }
+  padding: 8px 15px;
+  background-image: url("/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 20px;
+  background-origin: content-box;
+  border-radius: 8px;
+  appearance: none;
+  &.input-form {
+    width: 220px;
   }
+  &.select-year {
+    width: 100px;
+  }
+  @media (max-width: $sm) {
+    padding: 8px 10px;
+    background-size: 15px;
+  }
+}

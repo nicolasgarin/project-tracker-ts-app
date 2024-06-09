@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className={theme}>
       <div className="container-lg d-flex flex-column flex-sm-row align-items-center justify-content-between">
-        <div className="texto-footer d-flex align-items-center justify-content-center justify-content-sm-start">
+        <div className="texto-footer d-none d-md-flex  align-items-center justify-start">
           <img
             src={theme == "light" ? logoceleste : logovioleta}
             className="logo"
