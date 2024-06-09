@@ -17,7 +17,7 @@ export default function Home() {
     <ThemedContainer className="home">
       <NewProjectForm />
       <MainContainer>
-        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start mb-3">
+        <div className="d-flex justify-content-between align-items-start mb-3">
           <h2 className="titulo">{lang == "es" ? "Proyectos" : "Projects"}</h2>
           <SelectedDaySetter />
         </div>

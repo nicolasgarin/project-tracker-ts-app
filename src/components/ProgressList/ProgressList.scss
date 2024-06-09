@@ -2,7 +2,72 @@
 
 //PROGRESS LIST
 .progress-list {
-    .date-setter {
-      margin-bottom: 20px;
+  .date-setter {
+    margin-bottom: 20px;
+  }
+
+  .prog-table-item {
+    color: $celeste-3;
+    font-weight: 500;
+    font-size: 18px;
+    .left-sec {
+      margin-top: 78px;
+      flex-basis: 200px;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+    .right-sec {
+      overflow-x: scroll;
+      padding-bottom: 15px;
+    }
+    .link-fila {
+      text-decoration: none;
+      color: unset;
+    }
+    .nombre-fila {
+      height: 30px;
+      padding: 0px 5px;
+      margin-right: 15px;
+      position: relative;
+      width: inherit;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .plm:hover {
+      color: $violeta-2;
+    }
+
+    .celda {
+      flex-basis: 30px;
+      flex-grow: 0;
+      flex-shrink: 0;
     }
   }
+  .nombre-fila {
+    margin-right: 15px;
+    .tabla-dias {
+      width: 100%;
+      gap: 2px;
+    }
+  }
+  .num {
+    background-color: $violeta-3;
+    color: $gris-claro;
+    font-weight: 600;
+  }
+  .letra {
+    background-color: $celeste-3;
+    color: $gris-claro;
+    font-weight: 600;
+  }
+  @media (max-width: $md) {
+    padding: 15px 0;
+    .prog-table-item {
+      .left-sec {
+        flex-basis: 60px;
+      }
+    }
+  }
+}

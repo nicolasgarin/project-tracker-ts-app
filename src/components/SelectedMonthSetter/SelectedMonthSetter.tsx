@@ -57,7 +57,6 @@ export default function SelectedMonthSetter({
         id="year"
         value={selectedYear}
         onChange={handleYear}
-        role="select"
       >
         {availableYears.length > 0 ? (
           availableYears

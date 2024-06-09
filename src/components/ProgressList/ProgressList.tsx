@@ -8,6 +8,8 @@ import { capFirstLetter } from "../../utils/reusableFunctions";
 import { getMonthFromString } from "../../utils/dateFunctions";
 import { IProject } from "../../@types/data";
 import FilterOptions from "../FilterOptions/FilterOptions";
+import { BsHeartPulseFill } from "react-icons/bs";
+import { FaBrain, FaPaintBrush } from "react-icons/fa";
 
 interface ProgressListProps {
   fullProjects: IProject[];
@@ -204,7 +206,17 @@ export default function ProgressList({
                               key={`${proyecto.id}-nombre-fila`}
                               className="nombre-fila plm bold texto-celeste"
                             >
-                              {capFirstLetter(proyecto.nombre)}
+                              <span className="d-none d-md-inline">{capFirstLetter(proyecto.nombre)}</span>
+                              <span className="d-md-none d-flex align-items-center g-5">
+                                {capFirstLetter(proyecto.nombre).split("")[0]}
+                                {proyecto.tipo == "Salud" ? (
+                                  <BsHeartPulseFill />
+                                ) : proyecto.tipo == "Crecimiento" ? (
+                                  <FaBrain />
+                                ) : (
+                                  <FaPaintBrush />
+                                )}
+                              </span>
                             </div>
                           </Link>
                         );
