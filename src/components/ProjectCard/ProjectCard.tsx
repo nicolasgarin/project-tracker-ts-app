@@ -23,6 +23,7 @@ export default function ProjectCard({ project }: { project: IProject }) {
         className={`card ${project.archivado ? "disabled" : ""}`}
         id={project.id}
         key={project.id}
+        aria-disabled={{project.archivado ? true : false}
       >
         <div className="card-header">
           <h3 className="title d-flex justify-content-between align-items-center">
