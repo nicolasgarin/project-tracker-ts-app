@@ -55,7 +55,7 @@ export default function Project() {
               to={"/project-tracker-ts-app/"}
               aria-label={lang == "es" ? "Volver al inicio" : "Return to home"}
             >
-              <button className="btn btn-celeste flecha">
+              <button className="btn btn-celeste flecha" title={lang == "es" ? "Volver al inicio" : "Return to home"} >
                 <FaAngleLeft />
               </button>
             </Link>
