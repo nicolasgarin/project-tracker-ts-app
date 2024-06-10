@@ -168,8 +168,12 @@ export default function ProjectCard({ project }: { project: IProject }) {
             ) : (
               <button
                 disabled={true}
+                aria-disabled={true}
                 className="btn btn-celeste-4 btn-ojo square"
-              >
+                aria-label={
+                  lang == "es" ? "Expandir proyecto" : "Expand project"
+                }
+            >
                 <TbEyeClosed className="closed" />
               </button>
             )}
@@ -178,6 +182,7 @@ export default function ProjectCard({ project }: { project: IProject }) {
                 aria-label={
                   lang == "es" ? "Eliminar proyecto" : "Delete project"
                 }
+                
                 onClick={() =>
                   dispatch({
                     type: "ELIMINAR_PROYECTO",
@@ -189,7 +194,12 @@ export default function ProjectCard({ project }: { project: IProject }) {
                 <ImCross className="x" />
               </button>
             ) : (
-              <button disabled={true} className="btn btn-rojo square">
+              <button disabled={true} className="btn btn-rojo square"
+              aria-label={
+                lang == "es" ? "Expandir proyecto" : "Expand project"
+              }
+              aria-disabled={true}
+>
                 <ImCross className="x" />
               </button>
             )}
