@@ -53,7 +53,7 @@ export default function FilterOptions({ project }: FilterOptionsProps) {
             </div>
           </div>
           <div className="op d-flex align-items-center">
-            <img src={theme == "light" ? rocket : rocketdark} />
+            <img alt="Project tracker logo" src={theme == "light" ? rocket : rocketdark} />
             <div
               className="d-flex align-items-center justify-content-center celda celda-md"
               onClick={toggleShowMain}
