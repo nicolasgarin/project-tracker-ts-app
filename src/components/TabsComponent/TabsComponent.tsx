@@ -11,7 +11,7 @@ Tabs.Titles = ({ items }) => {
   return (
     <ul className="nav nav-tabs" role="tablist" aria-label="Project info">
       {items.map(({ id, title }, index) => (
-        <li key={id} className="nav-item">
+        <li key={id} className="nav-item" role="tab">
           <button
             className={`nav-link ${currentIndex === index ? 'active' : ''}`}
             key={id}
