@@ -9,7 +9,7 @@ const Tabs: TabsWrapper & TabsComposition = ({ children }) => {
 Tabs.Titles = ({ items }) => {
   const { currentIndex, setCurrentIndex } = useTabsContext();
   return (
-    <ul className="nav nav-tabs" role="tablist">
+    <ul className="nav nav-tabs" role="tablist" aria-label="Project info">
       {items.map(({ id, title }, index) => (
         <li key={id} className="nav-item">
           <button
