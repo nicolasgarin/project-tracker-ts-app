@@ -72,27 +72,24 @@ footer.dark {
       color: $celeste !important;
     }
   }
-}
-
-.project {
   .form-nueva-subcat {
     .btn-violeta {
-      background-color: $celeste-2;
+      background-color: $celeste;
       color: $violeta-4 !important;
-      border: 2px solid $celeste-2;
+      border: 2px solid $celeste;
       &:hover {
         background-color: $azul-2;
         color: $blanco !important;
         border: 2px solid $blanco;
       }
     }
-  }
-  .subcat {
-    .btn-celeste {
-      color: $violeta-4;
-      border: 2px solid $celeste-2;
-      &:hover {
-        color: $blanco !important;
+    .subcat {
+      .btn-celeste {
+        color: $violeta-4;
+        border: 2px solid $celeste;
+        &:hover {
+          color: $blanco !important;
+        }
       }
     }
   }

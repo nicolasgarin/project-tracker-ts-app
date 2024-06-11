@@ -88,7 +88,7 @@
 
   &.btn-celeste {
     background-color: $celeste;
-    color: $gris-claro;
+    color: $violeta-4;
     border: 2px solid $celeste !important;
     svg {
       fill: $blanco;
@@ -96,6 +96,7 @@
     &:hover {
       border: 2px solid $blanco !important;
       background-color: $azul-2;
+      color: $blanco;
     }
   }
 

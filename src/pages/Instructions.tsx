@@ -17,8 +17,14 @@ export default function Instructions() {
       <MainContainer className="bold">
         <div className="seccion seccion-1">
           <div className="cont d-flex">
-            <Link to={"/project-tracker-ts-app/"}>
-              <button className="btn btn-celeste flecha">
+            <Link
+              to={"/project-tracker-ts-app/"}
+              aria-label={lang == "es" ? "Volver al inicio" : "Return to home"}
+            >
+              <button
+                className="btn btn-celeste flecha"
+                title={lang == "es" ? "Volver al inicio" : "Return to home"}
+              >
                 <FaAngleLeft />
               </button>
             </Link>
